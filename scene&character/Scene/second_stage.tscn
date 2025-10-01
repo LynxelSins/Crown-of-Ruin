@@ -1,0 +1,120 @@
+[gd_scene load_steps=15 format=3 uid="uid://crqcvhi0krnwt"]
+
+[ext_resource type="Texture2D" uid="uid://dg2e6ys4dc3jj" path="res://asset project game/ground.png" id="1_7ik5h"]
+[ext_resource type="PackedScene" uid="uid://b6hs8dyhj0l68" path="res://Characters/player.tscn" id="2_2ydoq"]
+[ext_resource type="PackedScene" uid="uid://ji4elf53wnpk" path="res://Scene/prop/wonder_walls.tscn" id="2_7f001"]
+[ext_resource type="PackedScene" uid="uid://bu3gh70gi4jos" path="res://Scene/prop/castle.tscn" id="3_84qtb"]
+[ext_resource type="PackedScene" uid="uid://4wts1euca22t" path="res://asset project game/Pine_4.fbx" id="4_84qtb"]
+[ext_resource type="PackedScene" uid="uid://c8ijx8ylncf2w" path="res://asset project game/Rock_3.fbx" id="5_y0o0x"]
+[ext_resource type="PackedScene" uid="uid://c0u6p13ir3w7l" path="res://Scene/save_point.tscn" id="7_uotj3"]
+[ext_resource type="Texture2D" uid="uid://c3yj6f4gd1142" path="res://asset project game/sky/sky2.png" id="8_sgg3w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ydoq"]
+size = Vector3(40, 1, 80)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ydoq"]
+albedo_color = Color(0.41215247, 0.41215247, 0.41215247, 1)
+albedo_texture = ExtResource("1_7ik5h")
+
+[sub_resource type="BoxMesh" id="BoxMesh_7ik5h"]
+material = SubResource("StandardMaterial3D_2ydoq")
+size = Vector3(40, 1, 80)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wiup3"]
+panorama = ExtResource("8_sgg3w")
+
+[sub_resource type="Sky" id="Sky_p3hpt"]
+sky_material = SubResource("PanoramaSkyMaterial_wiup3")
+
+[sub_resource type="Environment" id="Environment_uotj3"]
+background_mode = 2
+sky = SubResource("Sky_p3hpt")
+
+[node name="SecondStage" type="Node"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8865733, -0.1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48377228, -0.9, 3.5933895)
+shape = SubResource("BoxShape3D_2ydoq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43995, -0.9221593, 3.5436401)
+mesh = SubResource("BoxMesh_7ik5h")
+
+[node name="prop" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006426692, -0.6, 0)
+
+[node name="WonderWalls" parent="prop" instance=ExtResource("2_7f001")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 4.094836)
+
+[node name="Castle" parent="prop" instance=ExtResource("3_84qtb")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, -20.232246)
+
+[node name="WonderWalls2" parent="prop" instance=ExtResource("2_7f001")]
+transform = Transform3D(-15, 0, -2.264937e-06, 0, 15, 0, 2.264937e-06, 0, -15, 0, 0, 27.91198)
+
+[node name="Pine_1" parent="prop" instance=ExtResource("4_84qtb")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 18.026936, 0, 37.659092)
+
+[node name="Pine_2" parent="prop" instance=ExtResource("4_84qtb")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 18.026936, -2.4568167, 34.121887)
+
+[node name="Pine_3" parent="prop" instance=ExtResource("4_84qtb")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 18.026936, 0, 20.85088)
+
+[node name="Pine_4" parent="prop" instance=ExtResource("4_84qtb")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 18.026936, 0, 0.49473572)
+
+[node name="Pine_5" parent="prop" instance=ExtResource("4_84qtb")]
+transform = Transform3D(-1.9997566, 0, 0.031205595, 0, 2, 0, -0.031205595, 0, -1.9997566, -17.680767, 2.9802322e-08, 0.08163166)
+
+[node name="Pine_6" parent="prop" instance=ExtResource("4_84qtb")]
+transform = Transform3D(-1.9997566, 0, 0.031205595, 0, 2, 0, -0.031205595, 0, -1.9997566, -17.735956, -2.4568167, 3.6184044)
+
+[node name="Pine_7" parent="prop" instance=ExtResource("4_84qtb")]
+transform = Transform3D(-1.4998176, 0, 0.023404181, 0, 1.5, 0, -0.023404181, 0, -1.4998176, -17.943024, 2.9802322e-08, 16.887796)
+
+[node name="Pine_8" parent="prop" instance=ExtResource("4_84qtb")]
+transform = Transform3D(-1.9997566, 0, 0.031205595, 0, 2, 0, -0.031205595, 0, -1.9997566, -18.260633, 2.9802322e-08, 37.241463)
+
+[node name="Rock_1" parent="prop" instance=ExtResource("5_y0o0x")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -9.233328, 9.536743e-07, 35.855312)
+
+[node name="Rock_2" parent="prop" instance=ExtResource("5_y0o0x")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -4.5967546, -0.12633702, 25.475761)
+
+[node name="Rock_3" parent="prop" instance=ExtResource("5_y0o0x")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 3.0348735, -0.0751133, 35.855312)
+
+[node name="Rock_4" parent="prop" instance=ExtResource("5_y0o0x")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 5.856052, 9.536743e-07, 26.49522)
+
+[node name="Rock_5" parent="prop" instance=ExtResource("5_y0o0x")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -9.233328, 9.536743e-07, 11.605282)
+
+[node name="Rock_6" parent="prop" instance=ExtResource("5_y0o0x")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -2.8486733, -0.14419651, -2.603083)
+
+[node name="Rock_7" parent="prop" instance=ExtResource("5_y0o0x")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 7.4343963, 9.536743e-07, 9.108597)
+
+[node name="Rock_8" parent="prop" instance=ExtResource("5_y0o0x")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 4.598367, -0.10763261, 1.4842257)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.05569955, 0.9984476, 0, -0.9984476, 0.05569955, -0.8865733, 12.334682, 0)
+
+[node name="Player" parent="." instance=ExtResource("2_2ydoq")]
+transform = Transform3D(-0.9426939, 0, -0.33365887, 0, 1, 0, 0.33365887, 0, -0.9426939, 0.14875102, -0.308244, 36.94311)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.97846216, 0.2064262, 0, -0.2064262, 0.97846216, -1.2018714, 9.295676, 21.613483)
+visible = false
+
+[node name="SavePoint" parent="." instance=ExtResource("7_uotj3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14728236, -0.6506685, 36.9409)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uotj3")
