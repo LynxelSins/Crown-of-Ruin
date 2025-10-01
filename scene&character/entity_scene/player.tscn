@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxrubx7j3pp2n"]
+
+[ext_resource type="Script" uid="uid://dw4tumquqh0j5" path="res://player.gd" id="1_e6j6n"]
+[ext_resource type="PackedScene" uid="uid://undf2rj2uias" path="res://Characters/Model/lucien.tscn" id="2_i3c50"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p1u1b"]
+size = Vector3(1.1668701, 2.0147095, 1.2340088)
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_oy4gk"]
+length = 0.5
+slide_on_slope = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5sjb3"]
+size = Vector3(2.8206024, 2.6713867, 3.2111816)
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_e6j6n")
+
+[node name="Player_model" type="Node3D" parent="."]
+
+[node name="Lucien" parent="Player_model" instance=ExtResource("2_i3c50")]
+
+[node name="hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00982666, 1.0396423, -0.07733154)
+shape = SubResource("BoxShape3D_p1u1b")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
+transform = Transform3D(-0.9967788, 0, -0.080199, -0.010189066, 0.9918967, 0.12663805, 0.07954912, 0.12704727, -0.9887017, -0.28131998, 2.0036304, -2.0985034)
+shape = SubResource("SeparationRayShape3D_oy4gk")
+spring_length = 0.8
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999994, 2.9802322e-08, 0.49583578, 0.31764388)
+current = true
+
+[node name="AttackColli" type="Area3D" parent="."]
+
+[node name="normalAttack" type="CollisionShape3D" parent="AttackColli"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10222626, 0.83569336, 0.5818783)
+shape = SubResource("BoxShape3D_5sjb3")
+disabled = true
+
+[connection signal="body_entered" from="AttackColli" to="." method="_on_attack_colli_body_entered"]
