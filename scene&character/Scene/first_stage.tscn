@@ -36,6 +36,13 @@ sky_material = SubResource("PanoramaSkyMaterial_ahqrh")
 [sub_resource type="Environment" id="Environment_ahqrh"]
 background_mode = 2
 sky = SubResource("Sky_fqtjv")
+ambient_light_source = 3
+ambient_light_color = Color(0, 0, 0.6862745, 1)
+reflected_light_source = 2
+fog_light_color = Color(0.0029160436, 0.089162715, 0.20970231, 1)
+fog_sky_affect = 0.151
+adjustment_enabled = true
+adjustment_saturation = 0.7
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fqtjv"]
 size = Vector3(100, 1, 100)

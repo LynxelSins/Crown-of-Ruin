@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 @export_group("Movement")
 ## Character maximum run speed on the ground in meters per second.
-@export var move_speed := 8.0
+@export var move_speed := 5.0
 ## Ground movement acceleration in meters per second squared.
 @export var acceleration := 20.0
 ## When the player is on the ground and presses the jump button, the vertical
@@ -24,9 +24,12 @@ extends CharacterBody3D
 @onready var _camera_pivot: Node3D = $CameraPivot
 @onready var _camera: Camera3D = $CameraPivot/SpringArm3D/Camera3D
 @onready var _skin = $Player_model
-@onready var _attack_box = $AttackColli
+@onready var _attack_box = $AttackColli/normalAttack
 var is_attacking = false
+@onready var _animation_tree = $Player_model/Lucien/AnimationTree
+@onready var combo_timer = $Timers/ComboTimer
 
+var combo_step: int = 0
 
 
 
@@ -44,7 +47,7 @@ var _camera_input_direction := Vector2.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Player_model/Lucien.finish_attack.connect(on_finish_attack)
-	$Player_model/Lucien/AnimationPlayer.play("Lucien/Idle")
+	#_animation_tree.is_idle = true
 
 
 
@@ -55,6 +58,9 @@ func _physics_process(delta):
 	var raw_input = Vector2.ZERO
 	if !is_attacking:
 		raw_input = Input.get_vector("move_left", "move_right", "move_forward", "move_backward", 0.4)
+		
+	if Input.is_action_just_pressed("attack"):
+		handle_attack()
 
 	# Take the input vector and transform it by the body's basis (its rotation).
 	# This makes the movement relative to where the player is facing.
@@ -92,12 +98,14 @@ func _physics_process(delta):
 	var is_just_jumping := Input.is_action_just_pressed("jump") and is_on_floor()
 	if is_just_jumping:
 		velocity.y += jump_impulse
-		$Player_model/Lucien/AnimationPlayer.play("Lucien/Jump")
+	
+		
 	
 	
 	
 	
 	_was_on_floor_last_frame = is_on_floor()
+	handle_movement(raw_input)
 	move_and_slide()
 	
 	_camera_pivot.rotation.x = clamp(_camera_pivot.rotation.x, tilt_lower_limit, tilt_upper_limit)
@@ -120,16 +128,17 @@ func _physics_process(delta):
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack") && !is_attacking:
-		normal_attack()
-		is_attacking = true
-		print("endable")
+		pass
+
 	
 	
 		
 		
-func normal_attack():
+func normal_attack(name):
+	
+	is_attacking = true
 	$AttackColli/normalAttack.disabled = false
-	$Player_model/Lucien/AnimationPlayer.play("Lucien/Attack1")
+	
 
 
 func _on_attack_collion_body_entered(body: Node3D) -> void:
@@ -139,14 +148,83 @@ func _on_attack_collion_body_entered(body: Node3D) -> void:
 	$AttackColli/normalAttack.disabled = true
 	is_attacking = false
 	
+func reset_combo():
+	
+	combo_step = 0
+	combo_timer.stop()
+	_animation_tree["parameters/conditions/is_attacking1"] = false
+	_animation_tree["parameters/conditions/is_attacking2"] = false
+	_animation_tree["parameters/conditions/is_attacking3"] = false
+	print("Combo Reset!")
 
-func on_finish_attack():
+func on_finish_attack(attack_name):
 	is_attacking = false
-	$AttackColli/normalAttack.disabled = true
-	$Player_model/Lucien/AnimationPlayer.play("Lucien/Idle")
+	_attack_box.disabled = true # Always disable hitbox when attack finishes
+
+	# If this was the last attack in the combo, reset immediately
+	if combo_step == 3:
+		reset_combo()
+	# Otherwise, start the timer to give the player a window for the next input
+	else:
+		combo_timer.start()
+
+func handle_movement(raw_input):
+	if Input.is_action_just_pressed("jump"):
+		# Your jump logic here
+		_animation_tree["parameters/conditions/is_jumping"] = true
+		_animation_tree["parameters/conditions/is_idle"] = false
+		_animation_tree["parameters/conditions/is_walking"] = false
+
+	elif raw_input != Vector2.ZERO and is_on_floor():
+		# Your walk logic here
+		_animation_tree["parameters/conditions/is_walking"] = true
+		_animation_tree["parameters/conditions/is_idle"] = false
+		_animation_tree["parameters/conditions/is_jumping"] = false
+
+	elif is_on_floor():
+		# Your idle logic here
+		_animation_tree["parameters/conditions/is_idle"] = true
+		_animation_tree["parameters/conditions/is_walking"] = false
+		_animation_tree["parameters/conditions/is_jumping"] = false
+		
+func handle_attack():
+# If the combo window is closed and we are not attacking, start a new combo
+	if combo_step == 0 and not is_attacking:
+		combo_step = 1
+		
+		perform_attack("attack1")
+
+	# If the combo window is open (timer is running), perform the next attack
+	elif combo_step == 1 and not combo_timer.is_stopped():
+		combo_timer.stop() # Stop the timer to commit to the next attack
+		combo_step = 2
+		perform_attack("attack2")
+
+	elif combo_step == 2 and not combo_timer.is_stopped():
+		combo_timer.stop()
+		combo_step = 3
+		perform_attack("attack3")
+
+func perform_attack(attack_name: String):
+	is_attacking = true
+	_attack_box.disabled = false # Enable hitbox
+
+	# Set animation states
+	_animation_tree["parameters/conditions/is_idle"] = false
+	_animation_tree["parameters/conditions/is_walking"] = false
+	_animation_tree["parameters/conditions/is_jumping"] = false
+
+	# Use the AnimationTree's state machine to trigger the attack
+	# This is much cleaner than setting booleans for each attack
+	match attack_name:
+		"attack1":
+			_animation_tree["parameters/conditions/is_attacking1"] = true
+		"attack2":
+			_animation_tree["parameters/conditions/is_attacking2"] = true
+		"attack3":
+			_animation_tree["parameters/conditions/is_attacking3"] = true
 
 
-#func _on_attack_window_timeout() -> void:
-	#$attackCollion/normalAttack.disabled = true
-	#is_attacking = false
-	#print("disable")
+
+func _on_combo_timer_timeout() -> void:
+	reset_combo()

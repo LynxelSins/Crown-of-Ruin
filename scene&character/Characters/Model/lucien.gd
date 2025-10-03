@@ -12,6 +12,11 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+
+func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Lucien/Attack1":
-		finish_attack.emit()
+		finish_attack.emit("attack1")
+	elif anim_name == "Lucien/Attack2":
+		finish_attack.emit("attack2")
+	elif anim_name == "Lucien/Attack3":
+		finish_attack.emit("attack3")
