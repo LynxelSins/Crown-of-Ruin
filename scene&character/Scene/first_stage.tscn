@@ -1,6 +1,5 @@
-[gd_scene load_steps=23 format=3 uid="uid://6kvfrse1lgtm"]
+[gd_scene load_steps=24 format=3 uid="uid://6kvfrse1lgtm"]
 
-[ext_resource type="PackedScene" uid="uid://b6hs8dyhj0l68" path="res://Characters/player.tscn" id="1_chp84"]
 [ext_resource type="PackedScene" uid="uid://cyavjovmcqpj3" path="res://Scene/prop/house_1.tscn" id="2_4ngr7"]
 [ext_resource type="PackedScene" uid="uid://e6hknkgpqrjs" path="res://Scene/prop/farm.tscn" id="3_70u2u"]
 [ext_resource type="PackedScene" uid="uid://coohyuylv2ogj" path="res://Scene/prop/houses_3.tscn" id="4_mgcab"]
@@ -15,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bnho0ewnw612g" path="res://asset project game/rock_2.fbx" id="12_ahqrh"]
 [ext_resource type="PackedScene" uid="uid://dgx60082ukyvd" path="res://asset project game/Bush_Common_Flowers.fbx" id="13_8ailb"]
 [ext_resource type="PackedScene" uid="uid://c0u6p13ir3w7l" path="res://Scene/save_point.tscn" id="15_ahqrh"]
+[ext_resource type="PackedScene" uid="uid://bxrubx7j3pp2n" path="res://entity_scene/player.tscn" id="16_2dvfr"]
 [ext_resource type="Texture2D" uid="uid://c3yj6f4gd1142" path="res://asset project game/sky/sky2.png" id="16_fqtjv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ohqhq"]
@@ -36,12 +36,21 @@ sky_material = SubResource("PanoramaSkyMaterial_ahqrh")
 [sub_resource type="Environment" id="Environment_ahqrh"]
 background_mode = 2
 sky = SubResource("Sky_fqtjv")
+ambient_light_source = 3
+ambient_light_color = Color(0, 0, 0.6862745, 1)
+reflected_light_source = 2
+fog_light_color = Color(0.0029160436, 0.089162715, 0.20970231, 1)
+fog_sky_affect = 0.151
+adjustment_enabled = true
+adjustment_saturation = 0.7
 
-[node name="FirstStage" type="Node"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_fqtjv"]
+size = Vector3(100, 1, 100)
+
+[node name="FirstStage" type="Node3D"]
 
 [node name="Ground" type="StaticBody3D" parent="."]
-collision_layer = 4
-collision_mask = 0
+collision_layer = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
@@ -204,13 +213,6 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -33.56991, 0.025032043, -26.0
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.9894678, 0.14475337, 1.3681572e-08, -0.028544702, 0.19511844, 0.98036426, 0.14191101, -0.97003883, 0.19719535, 0, 30, 0)
 
-[node name="Player" parent="." instance=ExtResource("1_chp84")]
-transform = Transform3D(-0.9969949, 0, -0.07746739, 0, 1, 0, 0.07746739, 0, -0.9969949, 34.190876, -0.02709663, 33.447697)
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.94092214, 0.33862296, 0, -0.33862296, 0.94092214, 0, 2.9381323, 3.6573849)
-visible = false
-
 [node name="SavePoint" parent="." instance=ExtResource("15_ahqrh")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 34.327812, -0.67080915, 33.91679)
 
@@ -219,3 +221,12 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -25.059765, -0.67080915, -18.
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ahqrh")
+
+[node name="Player" parent="." instance=ExtResource("16_2dvfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.13813, 2.058125, 33.345245)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6530924, 0)
+shape = SubResource("BoxShape3D_fqtjv")
