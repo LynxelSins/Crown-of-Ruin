@@ -5,7 +5,8 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_np7og"]
 size = Vector3(0.2939148, 1.4784546, 0.041748047)
 
-[node name="Area3D" type="Area3D"]
+[node name="Blaster" type="Area3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [node name="BlasterSword" parent="." instance=ExtResource("1_nlxfi")]
 
