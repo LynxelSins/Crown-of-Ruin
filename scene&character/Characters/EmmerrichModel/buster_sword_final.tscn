@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cywawjr1ym4h1"]
+
+[ext_resource type="PackedScene" uid="uid://bg6hxx4gj78u1" path="res://buster_sword.tscn" id="1_nlxfi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_np7og"]
+size = Vector3(0.2939148, 1.4784546, 0.041748047)
+
+[node name="Area3D" type="Area3D"]
+
+[node name="BlasterSword" parent="." instance=ExtResource("1_nlxfi")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0023040771, 1.1133475, -0.0020751953)
+shape = SubResource("BoxShape3D_np7og")
