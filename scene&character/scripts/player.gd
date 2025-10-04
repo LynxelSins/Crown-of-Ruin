@@ -19,6 +19,10 @@ extends CharacterBody3D
 @export var tilt_upper_limit := PI / 3.0
 @export var tilt_lower_limit := -PI / 30.0
 
+@export var health = 100
+@export var max_health = 100
+@export var damage = 10
+
 @export var speed = 30
 @export var camera_speed = 2
 @onready var _camera_pivot: Node3D = $CameraPivot
@@ -28,6 +32,7 @@ extends CharacterBody3D
 var is_attacking = false
 @onready var _animation_tree = $Player_model/Lucien/AnimationTree
 @onready var combo_timer = $Timers/ComboTimer
+@onready var ui = $UI
 
 var combo_step: int = 0
 
@@ -49,7 +54,8 @@ func _ready() -> void:
 	$Player_model/Lucien.finish_attack.connect(on_finish_attack)
 	#_animation_tree.is_idle = true
 
-
+func _process(delta: float) -> void:
+	set_health_bar()
 
 
 # Use _physics_process for all physics-related code.
@@ -93,6 +99,8 @@ func _physics_process(delta):
 		velocity = Vector3.ZERO
 	velocity.y = y_velocity + _gravity * delta
 
+	
+
 	# Character animations and visual effects.
 	var ground_speed := Vector2(velocity.x, velocity.z).length()
 	var is_just_jumping := Input.is_action_just_pressed("jump") and is_on_floor()
@@ -124,7 +132,9 @@ func _physics_process(delta):
 	# Create a target velocity.
 	
 	
-	
+func set_health_bar():
+	ui.set_health_bar(int(health/max_health * 100))
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack") && !is_attacking:
