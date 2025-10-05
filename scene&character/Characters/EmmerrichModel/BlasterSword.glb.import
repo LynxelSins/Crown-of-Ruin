@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://by1meuybh6wey"
-path="res://.godot/imported/BlasterSword.glb-bf99c62ec88f0ec78881e446c9182322.scn"
+path="res://.godot/imported/BlasterSword.glb-da1d8d0fb8d8d3e916cbeb92d5bfc453.scn"
 
 [deps]
 
-source_file="res://Characters/EmmerrichModel/BlasterSword.glb"
-dest_files=["res://.godot/imported/BlasterSword.glb-bf99c62ec88f0ec78881e446c9182322.scn"]
+source_file="res://BlasterSword.glb"
+dest_files=["res://.godot/imported/BlasterSword.glb-da1d8d0fb8d8d3e916cbeb92d5bfc453.scn"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cs01d1inwf0qj"
-path.s3tc="res://.godot/imported/EmmerrichTextureAndAnimation_Body.png-1e563f5622415f894b34ba5a537b26f4.s3tc.ctex"
+path.s3tc="res://.godot/imported/EmmerrichTextureAndAnimation_Body.png-d5c8e32220619c1f1570cee6fefdbacf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Characters/EmmerrichModel/EmmerrichTextureAndAnimation_Body.png"
-dest_files=["res://.godot/imported/EmmerrichTextureAndAnimation_Body.png-1e563f5622415f894b34ba5a537b26f4.s3tc.ctex"]
+source_file="res://EmmerrichTextureAndAnimation_Body.png"
+dest_files=["res://.godot/imported/EmmerrichTextureAndAnimation_Body.png-d5c8e32220619c1f1570cee6fefdbacf.s3tc.ctex"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://eap6dguvoygo"
-path="res://.godot/imported/EmmerrichTextureAndAnimation.glb-b745fc08c6e60f20be15152a8dfe59d2.scn"
+path="res://.godot/imported/EmmerrichTextureAndAnimation.glb-e2289a18df47459a0fdd0afc9e763327.scn"
 
 [deps]
 
-source_file="res://Characters/EmmerrichModel/EmmerrichTextureAndAnimation.glb"
-dest_files=["res://.godot/imported/EmmerrichTextureAndAnimation.glb-b745fc08c6e60f20be15152a8dfe59d2.scn"]
+source_file="res://EmmerrichTextureAndAnimation.glb"
+dest_files=["res://.godot/imported/EmmerrichTextureAndAnimation.glb-e2289a18df47459a0fdd0afc9e763327.scn"]
 
 [params]
 
