@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ck1aq36oms56x"
-path.s3tc="res://.godot/imported/BlasterSword_Map #26.jpg-054edf4d72cedf7799dd98ea424bf66b.s3tc.ctex"
+path.s3tc="res://.godot/imported/BlasterSword_Map #26.jpg-e5da86ba9411a96fc6576068143bed65.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://BlasterSword_Map #26.jpg"
-dest_files=["res://.godot/imported/BlasterSword_Map #26.jpg-054edf4d72cedf7799dd98ea424bf66b.s3tc.ctex"]
+source_file="res://Characters/EmmerrichModel/BlasterSword_Map #26.jpg"
+dest_files=["res://.godot/imported/BlasterSword_Map #26.jpg-e5da86ba9411a96fc6576068143bed65.s3tc.ctex"]
 
 [params]
 

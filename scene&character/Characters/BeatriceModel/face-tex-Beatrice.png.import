@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b750qsob3ffc7"
-path.s3tc="res://.godot/imported/EmmerrichTextureAndAnimation_Head-tex.png-6d37ff8bb8fb37ddf8d825886141d667.s3tc.ctex"
+uid="uid://bui7adpq6ivr"
+path.s3tc="res://.godot/imported/face-tex-Beatrice.png-e3b5ae606aae9621e140c41b4de1c048.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "4056fec8060355ac02409f442ee67b77"
-}
 
 [deps]
 
-source_file="res://Characters/EmmerrichModel/EmmerrichTextureAndAnimation_Head-tex.png"
-dest_files=["res://.godot/imported/EmmerrichTextureAndAnimation_Head-tex.png-6d37ff8bb8fb37ddf8d825886141d667.s3tc.ctex"]
+source_file="res://Characters/BeatriceModel/face-tex-Beatrice.png"
+dest_files=["res://.godot/imported/face-tex-Beatrice.png-e3b5ae606aae9621e140c41b4de1c048.s3tc.ctex"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://eap6dguvoygo"
-path="res://.godot/imported/EmmerrichTextureAndAnimation.glb-e2289a18df47459a0fdd0afc9e763327.scn"
+path="res://.godot/imported/EmmerrichTextureAndAnimation.glb-b745fc08c6e60f20be15152a8dfe59d2.scn"
 
 [deps]
 
-source_file="res://EmmerrichTextureAndAnimation.glb"
-dest_files=["res://.godot/imported/EmmerrichTextureAndAnimation.glb-e2289a18df47459a0fdd0afc9e763327.scn"]
+source_file="res://Characters/EmmerrichModel/EmmerrichTextureAndAnimation.glb"
+dest_files=["res://.godot/imported/EmmerrichTextureAndAnimation.glb-b745fc08c6e60f20be15152a8dfe59d2.scn"]
 
 [params]
 
@@ -37,6 +37,12 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:Idle/Skeleton3D": {
+"retarget/bone_map": Resource("uid://jsmvf7l3e2tg", "res://Mixamo BoneMap.tres")
+}
+}
+}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
