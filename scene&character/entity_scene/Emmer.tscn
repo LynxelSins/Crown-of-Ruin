@@ -13,6 +13,7 @@ size = Vector3(2.5130615, 2.4697266, 2.6142578)
 script = ExtResource("1_6bs15")
 
 [node name="EmmerrichTextureAndAnimation2" parent="." instance=ExtResource("2_6bs15")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Hitbox" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1329956, 1.1449599, -0.009567261)

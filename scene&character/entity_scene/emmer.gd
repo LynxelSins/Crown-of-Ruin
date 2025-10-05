@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @onready var target = get_node("../Player")
-@onready var animation_tree = $EmmerrichTextureAndAnimation/AnimationTree
+@onready var animation_tree =  $EmmerrichTextureAndAnimation2/AnimationTree
 
 @export var SPEED: float = 1.0
 @export var FOLLOW_DISTANCE: float = 14.0
@@ -60,10 +60,11 @@ func _on_attack_colli_body_entered(body: Node3D) -> void:
 	print("attack",body)
 	
 func _animation_handling():
-	if velocity != Vector3.ZERO:
+	
+	if velocity.x != 0 && velocity.y != 0 :
 		
 		animation_tree["parameters/conditions/is_walking"] = true
 		animation_tree["parameters/conditions/is_idle"] = false
 	else :
-		animation_tree["parameters/conditions/is_walking"] = true
+		animation_tree["parameters/conditions/is_walking"] = false
 		animation_tree["parameters/conditions/is_idle"] = true
