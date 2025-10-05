@@ -14,7 +14,8 @@ slide_on_slope = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_5sjb3"]
 size = Vector3(2.8206024, 2.6713867, 3.2111816)
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
+collision_layer = 2
 script = ExtResource("1_e6j6n")
 
 [node name="Player_model" type="Node3D" parent="."]
@@ -37,6 +38,8 @@ transform = Transform3D(1, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999994, 2.9802322e-
 current = true
 
 [node name="AttackColli" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 4
 
 [node name="normalAttack" type="CollisionShape3D" parent="AttackColli"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10222626, 0.83569336, 0.47683942)

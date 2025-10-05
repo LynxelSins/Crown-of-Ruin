@@ -1,9 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://dl451cg4ej4cx"]
+[gd_scene load_steps=9 format=3 uid="uid://dl451cg4ej4cx"]
 
-[ext_resource type="PackedScene" uid="uid://eap6dguvoygo" path="res://EmmerrichTextureAndAnimation.glb" id="1_ir25i"]
-[ext_resource type="PackedScene" uid="uid://cywawjr1ym4h1" path="res://buster_sword_final.tscn" id="2_fng2y"]
+[ext_resource type="PackedScene" uid="uid://eap6dguvoygo" path="res://Characters/EmmerrichModel/EmmerrichTextureAndAnimation.glb" id="1_ir25i"]
+[ext_resource type="PackedScene" uid="uid://cywawjr1ym4h1" path="res://Characters/EmmerrichModel/buster_sword_final.tscn" id="2_fng2y"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hib1k"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rou3r"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8qpto"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w5s3g"]
+advance_mode = 2
+advance_condition = &"is_walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l3pyy"]
+advance_mode = 2
+advance_condition = &"is_idle"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_u1ppu"]
+states/Idle/node = SubResource("AnimationNodeAnimation_hib1k")
+states/Idle/position = Vector2(396, 45)
+states/walk/node = SubResource("AnimationNodeAnimation_rou3r")
+states/walk/position = Vector2(570, 66)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_8qpto"), "Idle", "walk", SubResource("AnimationNodeStateMachineTransition_w5s3g"), "walk", "Idle", SubResource("AnimationNodeStateMachineTransition_l3pyy")]
 
 [node name="EmmerrichTextureAndAnimation" instance=ExtResource("1_ir25i")]
+
+[node name="Idle" parent="." index="0"]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, -0.22983646)
 
 [node name="Skeleton3D" parent="Idle" index="0"]
 bones/0/position = Vector3(-2.2870705, 5.99508, -114.21173)
@@ -133,3 +160,9 @@ external_skeleton = NodePath("..")
 
 [node name="Blaster" parent="Idle/Skeleton3D/BoneAttachment3D/MeshInstance3D" index="0" instance=ExtResource("2_fng2y")]
 transform = Transform3D(-9.600241, 65.487656, -44.935562, -73.33444, 10.069447, 30.342371, 30.494081, 44.83275, 58.822884, -16.218414, 8.647247, -10.160507)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeStateMachine_u1ppu")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/is_idle = false
+parameters/conditions/is_walking = false

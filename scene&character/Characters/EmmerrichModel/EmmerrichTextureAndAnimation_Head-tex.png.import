@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b750qsob3ffc7"
-path.s3tc="res://.godot/imported/EmmerrichTextureAndAnimation_Head-tex.png-ad87149e4d2bf999509f42e906ad9542.s3tc.ctex"
+path.s3tc="res://.godot/imported/EmmerrichTextureAndAnimation_Head-tex.png-6d37ff8bb8fb37ddf8d825886141d667.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://EmmerrichTextureAndAnimation_Head-tex.png"
-dest_files=["res://.godot/imported/EmmerrichTextureAndAnimation_Head-tex.png-ad87149e4d2bf999509f42e906ad9542.s3tc.ctex"]
+source_file="res://Characters/EmmerrichModel/EmmerrichTextureAndAnimation_Head-tex.png"
+dest_files=["res://.godot/imported/EmmerrichTextureAndAnimation_Head-tex.png-6d37ff8bb8fb37ddf8d825886141d667.s3tc.ctex"]
 
 [params]
 

@@ -151,12 +151,7 @@ func normal_attack(name):
 	
 
 
-func _on_attack_collion_body_entered(body: Node3D) -> void:
-	print(body.get_groups())
 
-	print("enemy hit")
-	$AttackColli/normalAttack.disabled = true
-	is_attacking = false
 	
 func reset_combo():
 	
@@ -238,3 +233,11 @@ func perform_attack(attack_name: String):
 
 func _on_combo_timer_timeout() -> void:
 	reset_combo()
+
+
+func _on_attack_colli_body_entered(body: Node3D) -> void:
+	print(body.get_groups())
+
+	print("enemy hit")
+	#$AttackColli/normalAttack.set_deferred("disabled", true)
+	#is_attacking = false
