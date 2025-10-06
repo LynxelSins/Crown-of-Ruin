@@ -4,7 +4,7 @@
 
 ### ชื่อเกม :  Crown of Ruin (มงกุฎแห่งความเสื่อมสลาย)
 
-#### Link to play demo :
+### Link to play demo :
 
 จัดทำโดย : 
 
@@ -137,8 +137,6 @@ Emmerich
 ### Win
 
 ### Game Over
-
-### VDO  (Link ไป clip vdo)
 
 ## อ้างอิง
 
