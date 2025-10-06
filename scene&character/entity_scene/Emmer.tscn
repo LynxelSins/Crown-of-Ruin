@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c3877e187t2jp"]
 
 [ext_resource type="Script" uid="uid://bga7tk8gg57ip" path="res://entity_scene/emmer.gd" id="1_6bs15"]
-[ext_resource type="PackedScene" uid="uid://dl451cg4ej4cx" path="res://Characters/EmmerrichModel/emmerrich_texture_and_animation.tscn" id="1_c2ppf"]
+[ext_resource type="PackedScene" uid="uid://blktnlqkcuqmq" path="res://Characters/EmmerrichModel/emmerrich_texture_and_animation2.tscn" id="2_6bs15"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6bs15"]
 size = Vector3(2.4815674, 2.2782593, 2.2395325)
@@ -12,7 +12,7 @@ size = Vector3(2.5130615, 2.4697266, 2.6142578)
 [node name="Emmer" type="CharacterBody3D"]
 script = ExtResource("1_6bs15")
 
-[node name="EmmerrichTextureAndAnimation" parent="." instance=ExtResource("1_c2ppf")]
+[node name="EmmerrichTextureAndAnimation2" parent="." instance=ExtResource("2_6bs15")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Hitbox" type="CollisionShape3D" parent="."]
