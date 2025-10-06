@@ -27,11 +27,17 @@
 ตัวเอก : 
 Lucian
 
+<img src="https://github.com/LynxelSins/Crown-of-Ruin/blob/6b02c1b5106f584ab5b53764ac04ef6e575fc3f2/scene%26character/Characters/character%20modeling1.jpg" alt="GitHub logo" width="200">
+
 ศัตรู : 
+
 Beatrice
+
+<img src="https://github.com/LynxelSins/Crown-of-Ruin/blob/6b02c1b5106f584ab5b53764ac04ef6e575fc3f2/scene%26character/Characters/character%20modeling2.jpg" alt="GitHub logo" width="200">
 
 Emmerich
 
+<img src="https://github.com/LynxelSins/Crown-of-Ruin/blob/6b02c1b5106f584ab5b53764ac04ef6e575fc3f2/scene%26character/Characters/character%20modelingBoss.jpg" alt="GitHub logo" width="200">
 
 ## รูปแบบการเล่น และ กติกา:
 มุมมองผู้เล่น : Third Person Point of View
