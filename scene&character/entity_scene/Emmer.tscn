@@ -9,7 +9,7 @@ size = Vector3(2.4815674, 2.2782593, 2.2395325)
 [sub_resource type="BoxShape3D" id="BoxShape3D_q01py"]
 size = Vector3(2.5130615, 2.4697266, 2.6142578)
 
-[node name="Emmer" type="CharacterBody3D"]
+[node name="Emmer" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_6bs15")
 
 [node name="EmmerrichTextureAndAnimation2" parent="." instance=ExtResource("2_6bs15")]
@@ -48,3 +48,4 @@ one_shot = true
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
 [connection signal="body_entered" from="AttackColli" to="." method="_on_attack_colli_body_entered"]
+[connection signal="body_exited" from="AttackColli" to="." method="_on_attack_colli_body_exited"]
