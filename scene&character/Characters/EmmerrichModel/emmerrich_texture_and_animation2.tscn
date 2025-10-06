@@ -1,9 +1,10 @@
-[gd_scene load_steps=30 format=4 uid="uid://blktnlqkcuqmq"]
+[gd_scene load_steps=35 format=4 uid="uid://blktnlqkcuqmq"]
 
 [ext_resource type="Texture2D" uid="uid://dh4crjrblm5u6" path="res://Characters/EmmerrichModel/EmmerrichTextureAndAnimation_crown.png" id="1_um5t4"]
 [ext_resource type="Texture2D" uid="uid://cs01d1inwf0qj" path="res://Characters/EmmerrichModel/EmmerrichTextureAndAnimation_Body.png" id="2_nv8x1"]
 [ext_resource type="Texture2D" uid="uid://b750qsob3ffc7" path="res://Characters/EmmerrichModel/EmmerrichTextureAndAnimation_Head-tex.png" id="3_d5367"]
 [ext_resource type="Animation" uid="uid://beeegpvk8flhy" path="res://Characters/EmmerrichModel/Idle.res" id="4_0bx8b"]
+[ext_resource type="PackedScene" uid="uid://cywawjr1ym4h1" path="res://Characters/EmmerrichModel/buster_sword_final.tscn" id="4_ceamc"]
 [ext_resource type="Animation" uid="uid://uv7kiolx5py8" path="res://Characters/EmmerrichModel/2handHoldSword.res" id="5_ceamc"]
 [ext_resource type="Animation" uid="uid://n82e7aj3yc45" path="res://Characters/EmmerrichModel/death.res" id="6_nfp5d"]
 [ext_resource type="Animation" uid="uid://c2utarc23y5m4" path="res://Characters/EmmerrichModel/jumpSlash.res" id="7_80mqo"]
@@ -443,8 +444,20 @@ _data = {
 &"walk": ExtResource("8_7agd5")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nfp5d"]
+animation = &"2handHoldSword"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0bx8b"]
 animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lp552"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_80mqo"]
+animation = &"jumpSlash"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7agd5"]
+animation = &"normalSlash"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ceamc"]
 animation = &"walk"
@@ -461,11 +474,22 @@ advance_mode = 2
 advance_condition = &"is_idle"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_lp552"]
+states/2handHoldSword/node = SubResource("AnimationNodeAnimation_nfp5d")
+states/2handHoldSword/position = Vector2(764, 61)
+states/End/position = Vector2(902, 100)
 states/Idle/node = SubResource("AnimationNodeAnimation_0bx8b")
-states/Idle/position = Vector2(330, 103)
+states/Idle/position = Vector2(328, 100)
+states/Start/position = Vector2(192, 100)
+states/death/node = SubResource("AnimationNodeAnimation_lp552")
+states/death/position = Vector2(1139, 100)
+states/jumpSlash/node = SubResource("AnimationNodeAnimation_80mqo")
+states/jumpSlash/position = Vector2(671, 140)
+states/normalSlash/node = SubResource("AnimationNodeAnimation_7agd5")
+states/normalSlash/position = Vector2(472, 191)
 states/walk/node = SubResource("AnimationNodeAnimation_ceamc")
-states/walk/position = Vector2(525, 77)
+states/walk/position = Vector2(532, 74)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_nfp5d"), "Idle", "walk", SubResource("AnimationNodeStateMachineTransition_80mqo"), "walk", "Idle", SubResource("AnimationNodeStateMachineTransition_7agd5")]
+graph_offset = Vector2(0, -36.592587)
 
 [node name="EmmerrichTextureAndAnimation" type="Node3D"]
 
@@ -933,6 +957,16 @@ bones/64/scale = Vector3(1, 0.99999994, 0.9999995)
 [node name="crown_001" type="MeshInstance3D" parent="Idle/GeneralSkeleton"]
 mesh = SubResource("ArrayMesh_v5x58")
 skin = SubResource("Skin_1dqi2")
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Idle/GeneralSkeleton"]
+transform = Transform3D(0.42169982, -0.68323565, 0.5961194, 0.87165564, 0.4865611, -0.05895001, -0.24977177, 0.54447, 0.8007286, -0.41404596, 1.2294772, -0.118139684)
+bone_name = "mixamorig_RightHandMiddle1"
+bone_idx = 43
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Idle/GeneralSkeleton/BoneAttachment3D"]
+
+[node name="Blaster" parent="Idle/GeneralSkeleton/BoneAttachment3D/MeshInstance3D" instance=ExtResource("4_ceamc")]
+transform = Transform3D(0.93429005, 1.1672016, -0.12138004, -0.552824, 0.57463187, 1.2705017, 1.0351241, -0.7466115, 0.7880895, -0.11818561, -0.042116046, 0.15197286)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
