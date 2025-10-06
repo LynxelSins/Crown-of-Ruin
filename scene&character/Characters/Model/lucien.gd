@@ -20,3 +20,5 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 		finish_attack.emit("attack2")
 	elif anim_name == "Lucien/Attack3":
 		finish_attack.emit("attack3")
+	elif anim_name == "GotHit":
+		print("end got hit")

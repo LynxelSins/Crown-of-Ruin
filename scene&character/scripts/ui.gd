@@ -11,5 +11,5 @@ func _process(delta: float) -> void:
 	pass
 
 
-func set_health_bar(value):
-	$ProgressBar.value = value
+func set_health_bar(health):
+	$ProgressBar.value = health

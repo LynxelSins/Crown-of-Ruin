@@ -19,9 +19,9 @@ extends CharacterBody3D
 @export var tilt_upper_limit := PI / 3.0
 @export var tilt_lower_limit := -PI / 30.0
 
-@export var health = 100
-@export var max_health = 100
-@export var damage = 10
+@export var health = 500
+@export var max_health = 500
+@export var damage = 50
 
 @export var speed = 30
 @export var camera_speed = 2
@@ -55,7 +55,7 @@ func _ready() -> void:
 	#_animation_tree.is_idle = true
 
 func _process(delta: float) -> void:
-	set_health_bar()
+	$UI.set_health_bar(int(health  * 100 /max_health))
 
 
 # Use _physics_process for all physics-related code.
@@ -132,8 +132,7 @@ func _physics_process(delta):
 	# Create a target velocity.
 	
 	
-func set_health_bar():
-	ui.set_health_bar(int(health/max_health * 100))
+
 
 
 func _input(event: InputEvent) -> void:
@@ -238,6 +237,22 @@ func _on_combo_timer_timeout() -> void:
 func _on_attack_colli_body_entered(body: Node3D) -> void:
 	print(body.get_groups())
 
-	print("enemy hit")
+	if body.is_in_group("Enemy"):
+		body.take_damage(damage)
 	#$AttackColli/normalAttack.set_deferred("disabled", true)
 	#is_attacking = false
+	
+func take_damage(damage):
+	
+	if health > 0:
+		health -= damage
+		print("player hp is ",health)
+		if health < 0:
+			health = 0
+			print("death placeholder")
+		
+	#_animation_tree["parameters/conditions/is_hit"] = true
+	# this animation seems to keep looping for some reason
+		
+	
+		
