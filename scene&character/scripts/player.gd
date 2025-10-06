@@ -36,7 +36,13 @@ var is_attacking = false
 
 var combo_step: int = 0
 
+@export var dash_speed: float = 40
+@export var dash_duration: float = 0.15
+@export var dash_cooldown: float = 2.0
 
+@onready var dash_timer = $Timers/DashCooldown
+
+var is_dashing = false
 
 var ground_height := 0.0
 
@@ -60,6 +66,16 @@ func _process(delta: float) -> void:
 
 # Use _physics_process for all physics-related code.
 func _physics_process(delta):
+	
+	
+	if is_dashing:
+		move_and_slide()
+		return
+		
+		
+	if Input.is_action_just_pressed("dash") && dash_timer.is_stopped():
+		print("dash")
+		start_dash()
 	# For a 3D game, we still use get_vector() to get a Vector2 for the horizontal plane.
 	var raw_input = Vector2.ZERO
 	if !is_attacking:
@@ -254,5 +270,36 @@ func take_damage(damage):
 	#_animation_tree["parameters/conditions/is_hit"] = true
 	# this animation seems to keep looping for some reason
 		
+		
+func start_dash():
+	# Determine the dash direction
+	#var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	#var dash_direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+
+	# If not moving, dash in the direction the character is facing
+	#if dash_direction == Vector3.ZERO:
+		#dash_direction = -transform.basis.z
+
+	var dash_direction = -$Player_model.global_basis.z
+	
+	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+	
+	if input_dir:
+		dash_direction = $Player_model.global_basis.z
+	_animation_tree["parameters/conditions/is_dashing"] = true
+	# --- This is the "impulse" part ---
+	is_dashing = true
+	velocity = dash_direction * dash_speed
+	
+	# Start the cooldown timer
+	dash_timer.wait_time = dash_cooldown
+	dash_timer.start()
+
+	# Wait for the dash duration to finish, then stop dashing
+	await get_tree().create_timer(dash_duration).timeout
+	_animation_tree["parameters/conditions/is_dashing"] = false
+	is_dashing = false
+	# Optional: Reset velocity after dash to prevent sliding
+	velocity = Vector3.ZERO
 	
 		
