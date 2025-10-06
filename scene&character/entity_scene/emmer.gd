@@ -73,7 +73,7 @@ func _animation_handling():
 	
 	
 	if velocity.x != 0 && velocity.y != 0 && !is_player :
-		
+		animation_tree["parameters/conditions/is_jump_slash"] = false
 		animation_tree["parameters/conditions/is_walking"] = true
 		animation_tree["parameters/conditions/is_idle"] = false
 	elif velocity.x != 0 && velocity.y != 0 && is_player:

@@ -272,6 +272,7 @@ func take_damage(damage):
 		
 		
 func start_dash():
+	ui.start_dash_cooldown()
 	# Determine the dash direction
 	#var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	#var dash_direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
