@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://80tkps5cqghg"]
+[gd_scene load_steps=6 format=3 uid="uid://80tkps5cqghg"]
 
 [ext_resource type="PackedScene" uid="uid://bxrubx7j3pp2n" path="res://entity_scene/player.tscn" id="1_jli8c"]
 [ext_resource type="PackedScene" uid="uid://c3877e187t2jp" path="res://entity_scene/Emmer.tscn" id="2_pe0jg"]
-[ext_resource type="PackedScene" uid="uid://eap6dguvoygo" path="res://Characters/EmmerrichModel/EmmerrichTextureAndAnimation.glb" id="3_bthvj"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_pe0jg"]
 size = Vector2(100, 100)
@@ -32,8 +31,5 @@ environment = SubResource("Environment_jli8c")
 transform = Transform3D(1, 0, 0, 0, 0.030154739, 0.9995452, 0, -0.9995452, 0.030154739, 0, 28.260616, 0)
 
 [node name="Emmer" parent="." instance=ExtResource("2_pe0jg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3794584, 5.582135)
+transform = Transform3D(-0.99969333, 0, -0.024763588, 0, 1, 0, 0.024763588, 0, -0.99969333, 0, 1.3794584, 5.582135)
 collision_layer = 4
-
-[node name="EmmerrichTextureAndAnimation" parent="." instance=ExtResource("3_bthvj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1907134, 0.56606716, -0.6260557)
