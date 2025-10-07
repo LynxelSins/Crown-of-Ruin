@@ -31,7 +31,7 @@ theme_override_font_sizes/font_size = 40
 text = "Control:
 W,A,S,D - Movement
 L-Shift - Dash
-J - Attack
+Q - Attack
 Spacebar - Jump
 arrow keys - Camera Control"
 

@@ -202,7 +202,7 @@ light_volumetric_fog_energy = 3.144
 shadow_enabled = true
 
 [node name="SavePoint" parent="." instance=ExtResource("15_ahqrh")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 34.327812, -0.67080915, 33.91679)
+transform = Transform3D(-1.2191561, 0, -1.5854521, 0, 2, 0, 1.5854521, 0, -1.2191561, 34.327812, -0.67080915, 33.91679)
 
 [node name="SavePoint2" parent="." instance=ExtResource("15_ahqrh")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -33.466713, -0.7584822, -42.733402)

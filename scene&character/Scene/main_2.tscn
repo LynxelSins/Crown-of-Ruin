@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1g7bbfqs7mcs"]
+[gd_scene load_steps=4 format=3 uid="uid://c1g7bbfqs7mcs"]
 
 [ext_resource type="Texture2D" uid="uid://nnhhglbu15tc" path="res://assets/38edb759-da26-4b85-a004-6bc93217f228.jpg" id="1_i6tr1"]
+[ext_resource type="Script" uid="uid://cjqfr4t3uqgqw" path="res://Scene/main_2.gd" id="1_l3otf"]
 [ext_resource type="FontFile" uid="uid://yuu32w4lymd1" path="res://assets/Phantom Shadow Serif Demo.otf" id="2_l3otf"]
 
 [node name="main2" type="Node2D"]
+scale = Vector2(1.1200001, 1.1200001)
+script = ExtResource("1_l3otf")
 
 [node name="GameOver" type="Sprite2D" parent="."]
 position = Vector2(575, 324)
@@ -18,3 +21,22 @@ offset_bottom = 154.425
 theme_override_fonts/font = ExtResource("2_l3otf")
 theme_override_font_sizes/font_size = 200
 text = "GAME OVER"
+
+[node name="Button" type="Button" parent="GameOver"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -865.1647
+offset_top = -302.18967
+offset_right = -637.1647
+offset_bottom = -153.18967
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_l3otf")
+theme_override_font_sizes/font_size = 90
+text = "Back to menu"
+
+[connection signal="pressed" from="GameOver/Button" to="." method="_on_button_pressed"]

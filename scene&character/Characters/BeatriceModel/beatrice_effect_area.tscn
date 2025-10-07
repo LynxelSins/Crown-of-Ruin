@@ -1,0 +1,131 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0xnnvlvpcnff"]
+
+[ext_resource type="Texture2D" uid="uid://cb6uyxa7cnsnl" path="res://Characters/BeatriceModel/Effect1.png" id="1_ubf08"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vjhdh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ohxr2"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(0.99839824, 0.0008234209, 0.99839145, 1)
+emission_energy_multiplier = 2.48
+
+[sub_resource type="Animation" id="Animation_vjhdh"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.034149647, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:scale:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance3D:rotation:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_tv0xt"]
+resource_name = "grow"
+length = 3.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-0.17541009, 0, 0, 0.094444446, -0.13743165, -1, -0.25, 0, 0.25, 0, -1, -0.042777788, 0, 0, 0, 0, -0.011111121, -0.16666667, 0, 0),
+"times": PackedFloat32Array(1.1999999, 2.0666666, 2.3333333, 2.5583334)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-0.034149647, 0, 0, 0.094444446, 0, -0.034149647, -0.25, 0, 0.25, 0, -2.5535705, -0.042777788, 0.4199035, 0, 0, 0, -0.011111121, -0.42559507, 0, 0),
+"times": PackedFloat32Array(1.1999999, 2.0666666, 2.3333333, 2.5666666)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:scale:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-0.18494767, 0, 0, 0.094444446, -0.13584206, -1, -0.25, 0, 0.25, 0, -1, -0.042777788, 0, 0, 0, 0, -0.011111121, -0.16666667, 0, 0),
+"times": PackedFloat32Array(1.1999999, 2.0666666, 2.3333333, 2.5583334)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance3D:rotation:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, 0, 0, 0.16666667, 0, 6.265732, -0.083333336, -0.52068985, 0, 0, 0, 0, 0, 0.16666667, 0, 6.265732, -0.083333336, -0.52068985, 0, 0),
+"times": PackedFloat32Array(1.1999999, 1.6999998, 2.1, 2.5666666)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ohxr2"]
+_data = {
+&"RESET": SubResource("Animation_vjhdh"),
+&"grow": SubResource("Animation_tv0xt")
+}
+
+[node name="MagicAreaExplore" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, 0, 0, -0.034149647, 0, 0, 0, -1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_vjhdh")
+surface_material_override/0 = SubResource("StandardMaterial3D_ohxr2")
+metadata/_edit_group_ = true
+
+[node name="Sprite3D" type="Sprite3D" parent="MeshInstance3D"]
+transform = Transform3D(-0.756113, 0.40320575, 1.0395098e-08, 0, -3.7055894e-08, 0.5, 0.40882882, 0.7457133, 1.922533e-08, 0, 0, 0)
+texture = ExtResource("1_ubf08")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ohxr2")
+}

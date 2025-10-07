@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://baq26s0rg0tku"]
+[gd_scene load_steps=4 format=3 uid="uid://baq26s0rg0tku"]
 
+[ext_resource type="Script" uid="uid://hpq8p855tvyx" path="res://Scene/main_3.gd" id="1_fr7cu"]
 [ext_resource type="Texture2D" uid="uid://bb56fl2nd86cc" path="res://assets/5c6a9586-4f14-4735-aed8-f63aaa05a1af.jpg" id="1_gkmte"]
 [ext_resource type="FontFile" uid="uid://yuu32w4lymd1" path="res://assets/Phantom Shadow Serif Demo.otf" id="2_fr7cu"]
 
 [node name="main3" type="Node2D"]
+scale = Vector2(1.1200001, 1.1618963)
+script = ExtResource("1_fr7cu")
+metadata/_edit_group_ = true
 
 [node name="Black-3701181280" type="Sprite2D" parent="."]
 position = Vector2(572.5, 320.5)
@@ -20,3 +24,22 @@ theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("2_fr7cu")
 theme_override_font_sizes/font_size = 180
 text = "THE END "
+
+[node name="Button" type="Button" parent="Black-3701181280"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -749.69855
+offset_top = -692.11145
+offset_right = -521.69855
+offset_bottom = -543.11145
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_fr7cu")
+theme_override_font_sizes/font_size = 90
+text = "Start"
+
+[connection signal="pressed" from="Black-3701181280/Button" to="." method="_on_button_pressed"]
