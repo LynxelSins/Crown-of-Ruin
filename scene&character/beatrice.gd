@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+signal died
 @onready var purple_bullet_scene = preload("res://entity_scene/purple_bullet.tscn")
 @onready var bullet_fire_rate = $Timer/bullet_fire_rate
 @onready var bullet_cool_down = $Timer/bullet_cooldown
@@ -32,7 +32,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if health <= 0:
 		GameManager.is_first_state_done = true
-			
+		#ดิฉันจะขอป่าวประกาศการตาบของตน ณ ที่แห่งนี้
+		emit_signal("died")
 		queue_free()
 
 func _physics_process(delta: float) -> void:
@@ -66,6 +67,9 @@ func _spawn_sword_red():
 	sword_counter +=1
 	$Timer/sword_summon_rate.start()
 	var new_sword = sword_red_bullet.instantiate()
+	
+	#เพิ่มการส่ง Reference ของบอสไปให้เจ้าดาบฟ้าๆ
+	new_sword.boss_node = self
 	
 	var random_offset = Vector3(
 		randf_range(-10, 10),  # Random X position
@@ -140,6 +144,9 @@ func _activate_blue_sword():
 
 	var new_sword = sword_blue.instantiate()
 	
+	# ⭐ เพิ่มบรรทัดนี้: ส่ง Reference ของบอส (self) ไปให้ดาบ
+	new_sword.boss_node = self
+	
 	var random_offset = Vector3(
 		randf_range(-10, 10),  # Random X position
 		randf_range(1, 10),    # Random Y position
@@ -158,9 +165,9 @@ func take_damage(damage):
 	if health > 0:
 		health -= damage
 		print("beatrice hp is ",health)
-		if health < 0:
+		if health <= 0:
 			GameManager.is_first_state_done = true
-			
+			emit_signal("died")
 			queue_free()
 
 

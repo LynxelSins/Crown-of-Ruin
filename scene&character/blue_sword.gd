@@ -1,5 +1,4 @@
 extends CharacterBody3D
-
 # --- Configuration Exports ---
 @export var speed = 25              # Movement speed when in the MOVE_TO_TARGET state
 @export var rotation_speed = 5.0    # Controls how fast the smooth look happens (Higher = Faster)
@@ -19,12 +18,15 @@ enum State {
 var current_state = State.IDLE
 
 var timer = 0.0                 # Timer used to track time in the SMOOTH_LOOK and WAIT states
+var boss_node: Node3D
 
 func _ready() -> void:
-	print("spawn blue")
-	look_time = randf_range(0,2)
-	wait_time = randf_range(0,2)
-	$TrackCooldown.start()
+	if is_instance_valid(boss_node):
+		boss_node.died.connect(_on_boss_died)
+		print("spawn blue")
+		look_time = randf_range(0,2)
+		wait_time = randf_range(0,2)
+		$TrackCooldown.start()
 	
 	
 
@@ -148,3 +150,8 @@ func _on_track_cooldown_timeout() -> void:
 
 func _on_timer_timeout() -> void:
 	queue_free()
+	
+func _on_boss_died():
+	queue_free()
+	
+	

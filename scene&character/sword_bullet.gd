@@ -19,12 +19,15 @@ enum State {
 var current_state = State.IDLE
 var target: Vector3
 var timer = 0.0                 # Timer used to track time in the SMOOTH_LOOK and WAIT states
+var boss_node: Node3D
 
 func _ready() -> void:
-	look_time = randf_range(0,1.5)
-	wait_time = randf_range(0,1)
-	print(get_node("../Player").position)
-	engage_target()
+	if is_instance_valid(boss_node):
+		boss_node.died.connect(_on_boss_died)
+		look_time = randf_range(0,1.5)
+		wait_time = randf_range(0,1)
+		print(get_node("../Player").position)
+		engage_target()
 
 # --- External Call to Start the Sequence ---
 func engage_target():
@@ -110,3 +113,6 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
 		body.take_damage(damage)
 		queue_free()
+		
+func _on_boss_died():
+	queue_free()

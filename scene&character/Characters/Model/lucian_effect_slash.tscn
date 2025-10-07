@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bq5gaaoecf2uk"]
+
+[ext_resource type="ArrayMesh" uid="uid://brfiwvo62xny8" path="res://slash.obj" id="1_3gxkg"]
+
+[sub_resource type="Gradient" id="Gradient_jpuao"]
+offsets = PackedFloat32Array(0, 0.27966103, 0.59322035)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_skwjy"]
+gradient = SubResource("Gradient_jpuao")
+fill_from = Vector2(0.44505495, 0.42857143)
+fill_to = Vector2(0.0989011, 0.34615386)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwxkx"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.32156864, 1, 1, 1)
+albedo_texture = SubResource("GradientTexture2D_skwjy")
+emission_enabled = true
+emission = Color(1.92523e-07, 2.887845e-06, 0.95144945, 1)
+emission_energy_multiplier = 2.28
+
+[node name="SwordEffect" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("1_3gxkg")
+surface_material_override/0 = SubResource("StandardMaterial3D_bwxkx")
+
+[node name="Sprite3D" type="Sprite3D" parent="MeshInstance3D"]
