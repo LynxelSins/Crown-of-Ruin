@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://il81g8rwem0o"]
+
+[ext_resource type="Script" uid="uid://ccufdny8584p8" path="res://purple_bullet.gd" id="1_qq60a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qq60a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tnbj7"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(0.7333331, 0, 1, 1)
+grow = true
+grow_amount = 0.1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_a48at"]
+top_radius = 0.1
+bottom_radius = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ro6q4"]
+transparency = 1
+blend_mode = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_42c30"]
+size = Vector3(1, 1, 2.4085693)
+
+[node name="purple_bullet" type="CharacterBody3D"]
+collision_layer = 0
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_qq60a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_qq60a")
+disabled = true
+
+[node name="model" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="model"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_tnbj7")
+mesh = SubResource("CylinderMesh_a48at")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ro6q4")
+
+[node name="Hitbox" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.16314697)
+shape = SubResource("BoxShape3D_42c30")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
