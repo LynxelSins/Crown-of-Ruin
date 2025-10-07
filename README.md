@@ -9,8 +9,11 @@
 จัดทำโดย : 
 
 673380037-1 นางสาวณัฐนันทน์ บุษดี สาขาวิทยาการคอมพิวเตอร์
+
 673380275-5 นางสาวปภาวรินทร์ นาเมืองรักษ์ สาขาวิทยาการคอมพิวเตอร์
+
 673380276-3 นางสาวปรนันท์ บุสดีวงค์ สาขาวิทยาการคอมพิวเตอร์
+
 673380298-3 นายอชิรวัช บึงไสย์ สาขาวิทยาการคอมพิวเตอร์
 
 
@@ -25,19 +28,19 @@
 
 ## ตัวละคร:
 ตัวเอก : 
-Lucian
+Lucien
 
-<img src="https://github.com/LynxelSins/Crown-of-Ruin/blob/8f2bc7a8226bfdcca2ad1049350555611d983152/scene%26character/Characters/Lucien.png" alt="GitHub logo" width="200">
+<img src="https://github.com/LynxelSins/Crown-of-Ruin/blob/8f2bc7a8226bfdcca2ad1049350555611d983152/scene%26character/Characters/Lucien.png" alt="GitHub logo" width="300">
 
 ศัตรู : 
 
 Beatrice
 
-<img src="https://github.com/LynxelSins/Crown-of-Ruin/blob/6b02c1b5106f584ab5b53764ac04ef6e575fc3f2/scene%26character/Characters/character%20modeling2.jpg" alt="GitHub logo" width="200">
+<img src="https://github.com/LynxelSins/Crown-of-Ruin/blob/6b02c1b5106f584ab5b53764ac04ef6e575fc3f2/scene%26character/Characters/character%20modeling2.jpg" alt="GitHub logo" width="300">
 
-Emmerich
+ราชาผู้โง่เขลา Emmerich
 
-<img src="https://github.com/LynxelSins/Crown-of-Ruin/blob/6b02c1b5106f584ab5b53764ac04ef6e575fc3f2/scene%26character/Characters/character%20modelingBoss.jpg" alt="GitHub logo" width="200">
+<img src="https://github.com/LynxelSins/Crown-of-Ruin/blob/6b02c1b5106f584ab5b53764ac04ef6e575fc3f2/scene%26character/Characters/character%20modelingBoss.jpg" alt="GitHub logo" width="300">
 
 ## รูปแบบการเล่น และ กติกา:
 มุมมองผู้เล่น : Third Person Point of View
@@ -138,15 +141,39 @@ Emmerich
 ## หน้าจอ Demo ฉากในเกม
 ### หน้าเมนู
 
+<img src="https://github.com/LynxelSins/Crown-of-Ruin/blob/90c0abbc35e354dba728808f22bba29e0a697ffa/screen/start.png" alt="GitHub logo" width="300">
+
 ### หน้าเล่นเกม
+
+เรื่องย่อ และ วิธีเล่น
+
+<img src="https://github.com/LynxelSins/Crown-of-Ruin/blob/90c0abbc35e354dba728808f22bba29e0a697ffa/screen/guide.png" alt="GitHub logo" width="300">
 
 ### Win
 
+<img src="https://github.com/LynxelSins/Crown-of-Ruin/blob/90c0abbc35e354dba728808f22bba29e0a697ffa/screen/end.png" alt="GitHub logo" width="300">
+
 ### Game Over
+
+<img src="https://github.com/LynxelSins/Crown-of-Ruin/blob/90c0abbc35e354dba728808f22bba29e0a697ffa/screen/gameover.png" alt="GitHub logo" width="300">
 
 ## อ้างอิง
 
-asset :
+#### asset 
 
-sound 
+https://poly.pizza/
+
+https://pixabay.com/th/illustrations/
+
+#### sound 
+
+https://pixabay.com/th/sound-effects/
+
+https://youtu.be/jZ7a1yPaJh0?si=0paxu8BtGKJblrxe
+
+https://youtu.be/Ym8jpnIgC2s?si=rRJ91SpNgDbbMWtX
+
+https://youtu.be/tOidHFzr3_A?si=3e_HcTHucmfGjYQN
+
+https://youtu.be/aLFIxcMlfRg?si=7PTW4LOAxe-WItK0
 
