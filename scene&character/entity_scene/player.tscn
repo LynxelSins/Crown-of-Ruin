@@ -51,6 +51,9 @@ disabled = true
 [node name="ComboTimer" type="Timer" parent="Timers"]
 one_shot = true
 
+[node name="DashCooldown" type="Timer" parent="Timers"]
+one_shot = true
+
 [node name="UI" parent="." instance=ExtResource("3_i3c50")]
 
 [connection signal="body_entered" from="AttackColli" to="." method="_on_attack_colli_body_entered"]

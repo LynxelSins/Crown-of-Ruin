@@ -8,6 +8,8 @@ extends CharacterBody3D
 @export var STOPPING_DISTANCE: float = 1.0
 var is_player = false
 var is_attack = false
+var is_player_in_attack_box = false
+var player : Node3D
 @export var health = 100
 @export var max_health = 100
 @export var attack = 10
@@ -66,14 +68,16 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 
 
 func _on_attack_colli_body_entered(body: Node3D) -> void:
-	perform_attack(body)
+	player = body
+	is_player_in_attack_box = true
+	
 	
 func _animation_handling():
 	
 	
 	
 	if velocity.x != 0 && velocity.y != 0 && !is_player :
-		
+		animation_tree["parameters/conditions/is_jump_slash"] = false
 		animation_tree["parameters/conditions/is_walking"] = true
 		animation_tree["parameters/conditions/is_idle"] = false
 	elif velocity.x != 0 && velocity.y != 0 && is_player:
@@ -108,6 +112,8 @@ func _attack_handling():
 	
 	
 func _on_finished_attack(attacktype):
+	if is_player_in_attack_box && player:
+		perform_attack(player)
 	
 	$AttackColli/AttackBox.disabled = true
 	$AttackCooldown.start()
@@ -131,3 +137,7 @@ func take_damage(damage):
 			
 func death_handling():
 	queue_free()
+
+
+func _on_attack_colli_body_exited(body: Node3D) -> void:
+	is_player_in_attack_box = false

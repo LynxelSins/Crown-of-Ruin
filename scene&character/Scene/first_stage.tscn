@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://6kvfrse1lgtm"]
+[gd_scene load_steps=25 format=3 uid="uid://6kvfrse1lgtm"]
 
 [ext_resource type="PackedScene" uid="uid://cyavjovmcqpj3" path="res://Scene/prop/house_1.tscn" id="2_4ngr7"]
 [ext_resource type="PackedScene" uid="uid://e6hknkgpqrjs" path="res://Scene/prop/farm.tscn" id="3_70u2u"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c0u6p13ir3w7l" path="res://Scene/save_point.tscn" id="15_ahqrh"]
 [ext_resource type="PackedScene" uid="uid://bxrubx7j3pp2n" path="res://entity_scene/player.tscn" id="16_2dvfr"]
 [ext_resource type="Texture2D" uid="uid://c3yj6f4gd1142" path="res://asset project game/sky/sky2.png" id="16_fqtjv"]
+[ext_resource type="PackedScene" uid="uid://c3877e187t2jp" path="res://entity_scene/Emmer.tscn" id="17_2dvfr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ohqhq"]
 size = Vector3(100, 1, 100)
@@ -223,10 +224,14 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -25.059765, -0.67080915, -18.
 environment = SubResource("Environment_ahqrh")
 
 [node name="Player" parent="." instance=ExtResource("16_2dvfr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.13813, 2.058125, 33.345245)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.13418, 2.6422195, 33.859062)
 
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6530924, 0)
 shape = SubResource("BoxShape3D_fqtjv")
+
+[node name="Emmer" parent="." instance=ExtResource("17_2dvfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1731415, 3.7914534, 23.503456)
+collision_layer = 36
