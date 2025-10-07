@@ -6,7 +6,7 @@ extends CharacterBody3D
 @export var look_time = 1.5            # Time spent in the SMOOTH_LOOK state (seconds)
 @export var wait_time = 1.5            # Time spent in the WAIT_BEFORE_MOVE state (seconds)
 @export var target_reached_threshold = 0.1 # Distance threshold to consider the target reached
-@export var damage = 5
+@export var damage = 20
 @onready var target = get_node("../Player")
 # --- State Management ---
 enum State {

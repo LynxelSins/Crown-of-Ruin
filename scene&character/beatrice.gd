@@ -30,7 +30,10 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	pass
+	if health <= 0:
+		GameManager.is_first_state_done = true
+			
+		queue_free()
 
 func _physics_process(delta: float) -> void:
 	if is_player:

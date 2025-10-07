@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 func _on_hitbox_body_entered(body: Node3D) -> void:
 	
 	if body.is_in_group("Player"):
-		body.take_damage(10)
+		body.take_damage(20)
 		$Hitbox/CollisionShape3D.set_deferred("disabled",true)
 		queue_free()
 
