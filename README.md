@@ -27,7 +27,7 @@
 ตัวเอก : 
 Lucian
 
-<img src="https://github.com/LynxelSins/Crown-of-Ruin/blob/6b02c1b5106f584ab5b53764ac04ef6e575fc3f2/scene%26character/Characters/character%20modeling1.jpg" alt="GitHub logo" width="200">
+<img src="https://github.com/LynxelSins/Crown-of-Ruin/blob/8f2bc7a8226bfdcca2ad1049350555611d983152/scene%26character/Characters/Lucien.png" alt="GitHub logo" width="200">
 
 ศัตรู : 
 
