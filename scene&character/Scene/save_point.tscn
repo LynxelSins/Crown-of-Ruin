@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c0u6p13ir3w7l"]
 
-[ext_resource type="Script" uid="uid://bybbnc40tk5hf" path="res://Scene/save_point.gd" id="1_6rowh"]
+[ext_resource type="Script" uid="uid://bybbnc40tk5hf" path="res://scripts/save_point.gd" id="1_6rowh"]
 [ext_resource type="Texture2D" uid="uid://blguugtj0va57" path="res://asset project game/save.png" id="1_63nrr"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_8ur3c"]

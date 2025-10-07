@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1g7bbfqs7mcs"]
+
+[ext_resource type="Texture2D" uid="uid://nnhhglbu15tc" path="res://assets/38edb759-da26-4b85-a004-6bc93217f228.jpg" id="1_i6tr1"]
+[ext_resource type="FontFile" uid="uid://yuu32w4lymd1" path="res://assets/Phantom Shadow Serif Demo.otf" id="2_l3otf"]
+
+[node name="main2" type="Node2D"]
+
+[node name="GameOver" type="Sprite2D" parent="."]
+position = Vector2(575, 324)
+scale = Vector2(0.751302, 0.638672)
+texture = ExtResource("1_i6tr1")
+
+[node name="Label" type="Label" parent="GameOver"]
+offset_left = -508.451
+offset_top = -156.575
+offset_right = 507.549
+offset_bottom = 154.425
+theme_override_fonts/font = ExtResource("2_l3otf")
+theme_override_font_sizes/font_size = 200
+text = "GAME OVER"
