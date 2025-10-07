@@ -28,7 +28,7 @@
 
 ## ตัวละคร:
 ตัวเอก : 
-Lucian
+Lucien
 
 <img src="https://github.com/LynxelSins/Crown-of-Ruin/blob/8f2bc7a8226bfdcca2ad1049350555611d983152/scene%26character/Characters/Lucien.png" alt="GitHub logo" width="300">
 
