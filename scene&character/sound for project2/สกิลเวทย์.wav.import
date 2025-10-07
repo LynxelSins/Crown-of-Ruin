@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cq8etsgjxde7q"
+path="res://.godot/imported/สกิลเวทย์.wav-2a46eb45ba84a806f885188afd162004.sample"
+
+[deps]
+
+source_file="res://sound for project2/สกิลเวทย์.wav"
+dest_files=["res://.godot/imported/สกิลเวทย์.wav-2a46eb45ba84a806f885188afd162004.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

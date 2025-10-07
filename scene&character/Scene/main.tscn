@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ciwttw6rerpov"]
+[gd_scene load_steps=5 format=3 uid="uid://ciwttw6rerpov"]
 
 [ext_resource type="FontFile" uid="uid://yuu32w4lymd1" path="res://assets/Phantom Shadow Serif Demo.otf" id="1_f6udf"]
 [ext_resource type="Script" uid="uid://bjpwojamllnwr" path="res://Scene/main.gd" id="1_r34rm"]
 [ext_resource type="Texture2D" uid="uid://caktcnt0l0dg7" path="res://assets/61b58071-a9b8-4f6e-ac8b-c467dfd244b8.jpg" id="1_sblpm"]
+[ext_resource type="AudioStream" uid="uid://bio0xdaraab0h" path="res://sound for project2/Grow a Garden Soundtrack - Main Theme [TubeRipper.cc] (1).wav" id="4_2wwxx"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_r34rm")
@@ -68,5 +69,10 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_f6udf")
 theme_override_font_sizes/font_size = 90
 text = "Start"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2wwxx")
+volume_db = -8.0
+autoplay = true
 
 [connection signal="pressed" from="BgForGame/Button" to="." method="_on_button_pressed"]

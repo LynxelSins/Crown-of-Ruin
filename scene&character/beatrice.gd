@@ -59,6 +59,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 func _spawn_sword_red():
+	$Sword_magic2.play()
 	sword_counter +=1
 	$Timer/sword_summon_rate.start()
 	var new_sword = sword_red_bullet.instantiate()
@@ -132,7 +133,7 @@ func _on_sword_summon_cooldown_timeout() -> void:
 	print("done cd red sword")
 	
 func _activate_blue_sword():
-
+	$Sword_magic.play()
 
 	var new_sword = sword_blue.instantiate()
 	

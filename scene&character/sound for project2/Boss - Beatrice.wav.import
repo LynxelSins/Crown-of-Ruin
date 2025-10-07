@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cqrqri6cc5l6i"
+path="res://.godot/imported/Boss - Beatrice.wav-8957bc45b2ae2a230708891cda144c4e.sample"
+
+[deps]
+
+source_file="res://sound for project2/Boss - Beatrice.wav"
+dest_files=["res://.godot/imported/Boss - Beatrice.wav-8957bc45b2ae2a230708891cda144c4e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://il81g8rwem0o"]
+[gd_scene load_steps=8 format=3 uid="uid://il81g8rwem0o"]
 
 [ext_resource type="Script" uid="uid://ccufdny8584p8" path="res://purple_bullet.gd" id="1_qq60a"]
+[ext_resource type="AudioStream" uid="uid://dv4bx3i77futy" path="res://sound for project2/กดปุ่ม.wav" id="2_tnbj7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qq60a"]
 
@@ -56,6 +57,9 @@ shape = SubResource("BoxShape3D_42c30")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_tnbj7")
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

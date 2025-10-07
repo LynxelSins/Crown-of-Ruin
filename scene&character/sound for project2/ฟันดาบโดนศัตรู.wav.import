@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dqexigsbow4v1"
+path="res://.godot/imported/ฟันดาบโดนศัตรู.wav-6cd3b67516da0dcbebbca62086275436.sample"
+
+[deps]
+
+source_file="res://sound for project2/ฟันดาบโดนศัตรู.wav"
+dest_files=["res://.godot/imported/ฟันดาบโดนศัตรู.wav-6cd3b67516da0dcbebbca62086275436.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

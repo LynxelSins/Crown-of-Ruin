@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwp3pr58m8oc0"]
+[gd_scene load_steps=7 format=3 uid="uid://dwp3pr58m8oc0"]
 
 [ext_resource type="Script" uid="uid://cd3v4yxiwjfbj" path="res://beatrice.gd" id="1_grrql"]
 [ext_resource type="PackedScene" uid="uid://bycrkjrj7bndm" path="res://Characters/BeatriceModel/beatrice_texture_and_animation.tscn" id="1_mnitl"]
+[ext_resource type="AudioStream" uid="uid://cq8etsgjxde7q" path="res://sound for project2/สกิลเวทย์.wav" id="3_olhwg"]
+[ext_resource type="AudioStream" uid="uid://cqrqri6cc5l6i" path="res://sound for project2/Boss - Beatrice.wav" id="4_pevt7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mnitl"]
 
@@ -65,6 +67,16 @@ one_shot = true
 [node name="WalkingTimer" type="Timer" parent="Timer"]
 wait_time = 5.0
 autostart = true
+
+[node name="Sword_magic" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_olhwg")
+
+[node name="Sword_magic2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_olhwg")
+
+[node name="music" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_pevt7")
+autoplay = true
 
 [connection signal="timeout" from="Timer/bullet_cooldown" to="." method="_on_bullet_cooldown_timeout"]
 [connection signal="timeout" from="Timer/bullet_firetime" to="." method="_on_bullet_firetime_timeout"]

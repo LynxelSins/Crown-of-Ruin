@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxrubx7j3pp2n"]
+[gd_scene load_steps=10 format=3 uid="uid://bxrubx7j3pp2n"]
 
 [ext_resource type="Script" uid="uid://dw4tumquqh0j5" path="res://scripts/player.gd" id="1_e6j6n"]
 [ext_resource type="PackedScene" uid="uid://undf2rj2uias" path="res://Characters/Model/lucien.tscn" id="2_i3c50"]
 [ext_resource type="PackedScene" uid="uid://c4amovrtvtydq" path="res://Scene/ui.tscn" id="3_i3c50"]
+[ext_resource type="AudioStream" uid="uid://b16lke0qndiqe" path="res://sound for project2/เดิน1.wav" id="4_5sjb3"]
+[ext_resource type="AudioStream" uid="uid://dyegh2wmk74dn" path="res://sound for project2/ฟันดาบตีลม.wav" id="5_xjwfw"]
+[ext_resource type="AudioStream" uid="uid://dqexigsbow4v1" path="res://sound for project2/ฟันดาบโดนศัตรู.wav" id="6_0pwh5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p1u1b"]
 size = Vector3(1.1668701, 2.0147095, 1.2340088)
@@ -55,6 +58,17 @@ one_shot = true
 one_shot = true
 
 [node name="UI" parent="." instance=ExtResource("3_i3c50")]
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Walk" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("4_5sjb3")
+
+[node name="Slash" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("5_xjwfw")
+
+[node name="hit" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("6_0pwh5")
 
 [connection signal="body_entered" from="AttackColli" to="." method="_on_attack_colli_body_entered"]
 [connection signal="timeout" from="Timers/ComboTimer" to="." method="_on_combo_timer_timeout"]

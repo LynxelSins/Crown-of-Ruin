@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3877e187t2jp"]
+[gd_scene load_steps=7 format=3 uid="uid://c3877e187t2jp"]
 
 [ext_resource type="Script" uid="uid://bga7tk8gg57ip" path="res://entity_scene/emmer.gd" id="1_6bs15"]
 [ext_resource type="PackedScene" uid="uid://blktnlqkcuqmq" path="res://Characters/EmmerrichModel/emmerrich_texture_and_animation2.tscn" id="2_6bs15"]
+[ext_resource type="AudioStream" uid="uid://dqexigsbow4v1" path="res://sound for project2/ฟันดาบโดนศัตรู.wav" id="3_q01py"]
+[ext_resource type="AudioStream" uid="uid://cj7ri8r7qgn3h" path="res://sound for project2/Boss - King Emmerich (แนะนำ 1.30 นาทีขึ้นไป).wav" id="4_0tkcd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6bs15"]
 size = Vector3(2.4815674, 2.2782593, 2.2395325)
@@ -45,6 +47,14 @@ one_shot = true
 [node name="JumpAttack Cooldown" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="Slash" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_q01py")
+
+[node name="music" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_0tkcd")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

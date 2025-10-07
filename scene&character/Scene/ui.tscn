@@ -1,12 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4amovrtvtydq"]
+[gd_scene load_steps=9 format=3 uid="uid://c4amovrtvtydq"]
 
 [ext_resource type="Script" uid="uid://dbfis7mauuu1b" path="res://scripts/ui.gd" id="1_3i1b0"]
+[ext_resource type="FontFile" uid="uid://yuu32w4lymd1" path="res://assets/Phantom Shadow Serif Demo.otf" id="2_bpjw8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3i1b0"]
 bg_color = Color(0.24115604, 0.24115607, 0.24115595, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpjw8"]
 bg_color = Color(0.23314846, 0.716572, 0, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_lfpiq"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_urowa"]
+color = Color(0.8912906, 4.1873755e-06, 8.663535e-07, 1)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_3i1b0"]
 
@@ -21,8 +27,18 @@ offset_left = 13.0
 offset_top = 21.0
 offset_right = 568.0
 offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("2_bpjw8")
 theme_override_styles/background = SubResource("StyleBoxFlat_3i1b0")
 theme_override_styles/fill = SubResource("StyleBoxFlat_bpjw8")
+
+[node name="boss_bar" type="ProgressBar" parent="."]
+offset_left = 335.0
+offset_top = 77.0
+offset_right = 890.0
+offset_bottom = 104.0
+theme_override_fonts/font = ExtResource("2_bpjw8")
+theme_override_styles/background = SubResource("StyleBoxLine_lfpiq")
+theme_override_styles/fill = SubResource("StyleBoxLine_urowa")
 
 [node name="DashCoolDown" type="Control" parent="."]
 layout_mode = 3
@@ -69,4 +85,5 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Dash CoolDown.."
+theme_override_fonts/font = ExtResource("2_bpjw8")
+text = "Dash Cooldown.."

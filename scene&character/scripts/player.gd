@@ -197,6 +197,7 @@ func handle_movement(raw_input):
 
 	elif raw_input != Vector2.ZERO and is_on_floor():
 		# Your walk logic here
+		$Audio/Walk.play()
 		_animation_tree["parameters/conditions/is_walking"] = true
 		_animation_tree["parameters/conditions/is_idle"] = false
 		_animation_tree["parameters/conditions/is_jumping"] = false
@@ -226,6 +227,7 @@ func handle_attack():
 		perform_attack("attack3")
 
 func perform_attack(attack_name: String):
+	$Audio/Slash.play()
 	is_attacking = true
 	_attack_box.disabled = false # Enable hitbox
 
@@ -254,12 +256,13 @@ func _on_attack_colli_body_entered(body: Node3D) -> void:
 	print(body.get_groups())
 
 	if body.is_in_group("Enemy"):
+		$Audio/hit.play()
 		body.take_damage(damage)
 	#$AttackColli/normalAttack.set_deferred("disabled", true)
 	#is_attacking = false
 	
 func take_damage(damage):
-	
+	$Audio/hit.play()
 	if health > 0:
 		health -= damage
 		print("player hp is ",health)

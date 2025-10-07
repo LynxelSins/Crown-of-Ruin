@@ -1,13 +1,21 @@
 extends CanvasLayer
 
 @onready var dash_cooldown_bar = $DashCoolDown/ProgressBar2
+var all_enemies
+var boss
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	all_enemies = get_tree().get_nodes_in_group("Enemy")
+	boss = all_enemies.get(0)
+	print(boss)
+	$boss_bar.max_value = boss.max_health
+	$boss_bar.value = boss.health
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	$boss_bar.value = boss.health
 	
 	if dash_cooldown_bar.value == dash_cooldown_bar.max_value:
 		

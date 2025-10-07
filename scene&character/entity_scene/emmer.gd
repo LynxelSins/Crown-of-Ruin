@@ -124,6 +124,7 @@ func _on_finished_attack(attacktype):
 	animation_tree["parameters/conditions/is_holding_sword"] = true
 func perform_attack(body: Node3D):
 	if body.is_in_group("Player"):
+		$Slash.play()
 		body.take_damage(damage)
 
 

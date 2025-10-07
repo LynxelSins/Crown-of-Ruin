@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b16lke0qndiqe"
+path="res://.godot/imported/เดิน1.wav-6235b02b9ef189471d1a96cd17338405.sample"
+
+[deps]
+
+source_file="res://sound for project2/เดิน1.wav"
+dest_files=["res://.godot/imported/เดิน1.wav-6235b02b9ef189471d1a96cd17338405.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

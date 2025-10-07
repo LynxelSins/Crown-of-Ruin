@@ -4,6 +4,7 @@ var direction
 @export var speed = 600
 var is_side = false
 func _ready() -> void:
+	$AudioStreamPlayer.play()
 	$Timer.start()
 	if !direction:
 		direction = $model.global_transform.basis.z
