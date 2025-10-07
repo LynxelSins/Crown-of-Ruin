@@ -12,7 +12,7 @@ var is_player_in_attack_box = false
 var player : Node3D
 @export var health = 800
 @export var max_health = 800
-@export var attack = 30
+@export var attack = 40
 var damage = 0
 
 

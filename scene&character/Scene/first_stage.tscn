@@ -1,5 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://6kvfrse1lgtm"]
+[gd_scene load_steps=26 format=3 uid="uid://6kvfrse1lgtm"]
 
+[ext_resource type="Script" uid="uid://cs4hlvo5w0x87" path="res://Scene/mesh_instance_3d.gd" id="1_jpqsl"]
 [ext_resource type="PackedScene" uid="uid://cyavjovmcqpj3" path="res://Scene/prop/house_1.tscn" id="2_4ngr7"]
 [ext_resource type="PackedScene" uid="uid://e6hknkgpqrjs" path="res://Scene/prop/farm.tscn" id="3_70u2u"]
 [ext_resource type="PackedScene" uid="uid://coohyuylv2ogj" path="res://Scene/prop/houses_3.tscn" id="4_mgcab"]
@@ -13,8 +14,11 @@
 [ext_resource type="PackedScene" uid="uid://c8ijx8ylncf2w" path="res://asset project game/Rock_3.fbx" id="11_8ailb"]
 [ext_resource type="PackedScene" uid="uid://bnho0ewnw612g" path="res://asset project game/rock_2.fbx" id="12_ahqrh"]
 [ext_resource type="PackedScene" uid="uid://dgx60082ukyvd" path="res://asset project game/Bush_Common_Flowers.fbx" id="13_8ailb"]
+[ext_resource type="Texture2D" uid="uid://bw2eioojv577p" path="res://assets/1.png" id="14_42sib"]
 [ext_resource type="Environment" uid="uid://c85dsbuljry3d" path="res://res/myresd.tres" id="15_2dvfr"]
 [ext_resource type="PackedScene" uid="uid://c0u6p13ir3w7l" path="res://Scene/save_point.tscn" id="15_ahqrh"]
+[ext_resource type="Texture2D" uid="uid://diydqh7p4o6qc" path="res://assets/6.png" id="15_jpqsl"]
+[ext_resource type="Texture2D" uid="uid://bxam4dsynmtq5" path="res://assets/5.png" id="15_vspir"]
 [ext_resource type="PackedScene" uid="uid://bxrubx7j3pp2n" path="res://entity_scene/player.tscn" id="16_2dvfr"]
 [ext_resource type="PackedScene" uid="uid://dwp3pr58m8oc0" path="res://beatrice.tscn" id="17_2dvfr"]
 
@@ -41,8 +45,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
 shape = SubResource("BoxShape3D_ohqhq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.057144165, -0.76149976, -0.056854248)
 mesh = SubResource("BoxMesh_chp84")
+script = ExtResource("1_jpqsl")
 
 [node name="Prop" type="Node3D" parent="Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -194,6 +199,23 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -4.342579, -0.061787605, 13.1
 [node name="Rock_3_8" parent="Ground/Prop" instance=ExtResource("11_8ailb")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -33.56991, 0.025032043, -26.071728)
 
+[node name="Dialog" type="Node3D" parent="Ground/Prop"]
+
+[node name="beatrice_dialog1" type="Sprite3D" parent="Ground/Prop/Dialog"]
+transform = Transform3D(0.24652691, 0, 0.17095171, 0, 0.3, 0, -0.17095171, 0, 0.24652691, -33.353737, 1.8418651, -14.420576)
+modulate = Color(1, 1, 1, 0.74509805)
+texture = ExtResource("15_vspir")
+
+[node name="beatrice_dialog1" type="Sprite3D" parent="Ground/Prop/Dialog/beatrice_dialog1"]
+transform = Transform3D(0.26138034, 0, -0.96523607, 0, 0.99999976, 0, 0.96523607, 0, 0.26138034, 25.429646, -0.84658027, -15.804871)
+modulate = Color(1, 1, 1, 0.7490196)
+texture = ExtResource("15_jpqsl")
+
+[node name="Sprite3D" type="Sprite3D" parent="Ground/Prop/Dialog"]
+transform = Transform3D(0.14469582, 0, 0.2627986, 0, 0.29999998, 0, -0.2627986, 0, 0.14469582, 24.578575, 2.1057577, 27.82409)
+modulate = Color(1.269618, 1.269618, 1.269618, 0.78431374)
+texture = ExtResource("14_42sib")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.11431924, 0.12585682, -0.9854396, 0.012197017, 0.9920457, 0.12528557, 0.9933692, 0.0023031312, -0.11494501, 22.759556, 4.096498, 21.558653)
 light_color = Color(1, 1, 0.6156863, 1)
@@ -220,4 +242,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6530924, 0)
 shape = SubResource("BoxShape3D_fqtjv")
 
 [node name="Beatrice" parent="." instance=ExtResource("17_2dvfr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.658173, -0.14374435, -35.946884)
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -32.658173, -0.14374435, -35.946884)

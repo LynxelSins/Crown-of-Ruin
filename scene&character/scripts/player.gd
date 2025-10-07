@@ -266,7 +266,7 @@ func take_damage(damage):
 	if health > 0:
 		health -= damage
 		print("player hp is ",health)
-		if health < 0:
+		if health <= 0:
 			health = 0
 			get_tree().change_scene_to_file("res://Scene/main_2.tscn")
 		
