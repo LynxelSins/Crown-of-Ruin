@@ -1,14 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://ciwttw6rerpov"]
+[gd_scene load_steps=2 format=3 uid="uid://ciwttw6rerpov"]
 
-[ext_resource type="Texture2D" uid="uid://uxappg4k2cpm" path="res://bg for game.png" id="1_ig7tw"]
-[ext_resource type="FontFile" uid="uid://dofnbc7k2s2kd" path="res://phantom-shadow-serif-demo/Phantom Shadow Serif Demo.otf" id="2_0xm2m"]
+[ext_resource type="FontFile" uid="uid://yuu32w4lymd1" path="res://assets/Phantom Shadow Serif Demo.otf" id="1_f6udf"]
 
 [node name="main" type="Node2D"]
 
 [node name="BgForGame" type="Sprite2D" parent="."]
 position = Vector2(575, 326)
 scale = Vector2(0.751302, 0.634766)
-texture = ExtResource("1_ig7tw")
 
 [node name="Label" type="Label" parent="BgForGame"]
 offset_left = -389.99
@@ -17,7 +15,7 @@ offset_right = 398.01
 offset_bottom = -73.4461
 theme_override_colors/font_outline_color = Color(0.333311, 3.76021e-07, 7.21961e-08, 1)
 theme_override_constants/outline_size = 20
-theme_override_fonts/font = ExtResource("2_0xm2m")
+theme_override_fonts/font = ExtResource("1_f6udf")
 theme_override_font_sizes/font_size = 140
 text = "Crown of Ruin"
 
@@ -27,6 +25,6 @@ offset_top = 72.4677
 offset_right = 155.615
 offset_bottom = 221.468
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_0xm2m")
+theme_override_fonts/font = ExtResource("1_f6udf")
 theme_override_font_sizes/font_size = 90
 text = "Start"
