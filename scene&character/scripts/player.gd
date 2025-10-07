@@ -265,7 +265,7 @@ func take_damage(damage):
 		print("player hp is ",health)
 		if health < 0:
 			health = 0
-			print("death placeholder")
+			get_tree().change_scene_to_file("res://Scene/main.tscn")
 		
 	#_animation_tree["parameters/conditions/is_hit"] = true
 	# this animation seems to keep looping for some reason

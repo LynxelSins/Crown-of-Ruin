@@ -1,11 +1,12 @@
 extends CharacterBody3D
 
 # --- Configuration Exports ---
-@export var speed = 5.0                # Movement speed when in the MOVE_TO_TARGET state
-@export var rotation_speed = 5.0       # Controls how fast the smooth look happens (Higher = Faster)
+@export var speed = 35                # Movement speed when in the MOVE_TO_TARGET state
+@export var rotation_speed = 5.0    # Controls how fast the smooth look happens (Higher = Faster)
 @export var look_time = 1.5            # Time spent in the SMOOTH_LOOK state (seconds)
 @export var wait_time = 1.5            # Time spent in the WAIT_BEFORE_MOVE state (seconds)
 @export var target_reached_threshold = 0.1 # Distance threshold to consider the target reached
+@export var damage = 10
 
 # --- State Management ---
 enum State {
@@ -20,10 +21,13 @@ var target: Vector3
 var timer = 0.0                 # Timer used to track time in the SMOOTH_LOOK and WAIT states
 
 func _ready() -> void:
+	look_time = randf_range(0,1.5)
+	wait_time = randf_range(0,1)
 	print(get_node("../Player").position)
+	engage_target()
 
 # --- External Call to Start the Sequence ---
-func engage_target(new_target_pos: Vector3):
+func engage_target():
 	"""
 	Called externally (e.g., from an area signal or game logic) to start the sequence.
 	"""
@@ -65,6 +69,7 @@ func _physics_process(delta):
 			if global_position.distance_to(target) < target_reached_threshold:
 				velocity = Vector3.ZERO
 				current_state = State.IDLE
+				queue_free()
 		
 		State.IDLE:
 			# Nothing happening, just apply physics to prevent sinking/floating
@@ -99,3 +104,9 @@ func move_towards_target(_delta: float):
 	var direction = -global_transform.basis.z 
 	velocity = direction * speed
 	move_and_slide()
+
+
+func _on_hitbox_body_entered(body: Node3D) -> void:
+	if body.is_in_group("Player"):
+		body.take_damage(damage)
+		queue_free()

@@ -1,13 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://crqcvhi0krnwt"]
+[gd_scene load_steps=13 format=3 uid="uid://crqcvhi0krnwt"]
 
 [ext_resource type="Texture2D" uid="uid://dg2e6ys4dc3jj" path="res://asset project game/ground.png" id="1_7ik5h"]
-[ext_resource type="PackedScene" uid="uid://b6hs8dyhj0l68" path="res://Characters/player.tscn" id="2_2ydoq"]
+[ext_resource type="PackedScene" uid="uid://bxrubx7j3pp2n" path="res://entity_scene/player.tscn" id="2_2ydoq"]
 [ext_resource type="PackedScene" uid="uid://ji4elf53wnpk" path="res://Scene/prop/wonder_walls.tscn" id="2_7f001"]
 [ext_resource type="PackedScene" uid="uid://bu3gh70gi4jos" path="res://Scene/prop/castle.tscn" id="3_84qtb"]
 [ext_resource type="PackedScene" uid="uid://4wts1euca22t" path="res://asset project game/Pine_4.fbx" id="4_84qtb"]
 [ext_resource type="PackedScene" uid="uid://c8ijx8ylncf2w" path="res://asset project game/Rock_3.fbx" id="5_y0o0x"]
 [ext_resource type="PackedScene" uid="uid://c0u6p13ir3w7l" path="res://Scene/save_point.tscn" id="7_uotj3"]
-[ext_resource type="Texture2D" uid="uid://c3yj6f4gd1142" path="res://asset project game/sky/sky2.png" id="8_sgg3w"]
+[ext_resource type="Environment" uid="uid://c85dsbuljry3d" path="res://res/myresd.tres" id="7_wiup3"]
+[ext_resource type="PackedScene" uid="uid://c3877e187t2jp" path="res://entity_scene/Emmer.tscn" id="9_wiup3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2ydoq"]
 size = Vector3(40, 1, 80)
@@ -20,17 +21,7 @@ albedo_texture = ExtResource("1_7ik5h")
 material = SubResource("StandardMaterial3D_2ydoq")
 size = Vector3(40, 1, 80)
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wiup3"]
-panorama = ExtResource("8_sgg3w")
-
-[sub_resource type="Sky" id="Sky_p3hpt"]
-sky_material = SubResource("PanoramaSkyMaterial_wiup3")
-
-[sub_resource type="Environment" id="Environment_uotj3"]
-background_mode = 2
-sky = SubResource("Sky_p3hpt")
-
-[node name="SecondStage" type="Node"]
+[node name="SecondStage" type="Node3D"]
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8865733, -0.1, 0)
@@ -104,17 +95,18 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 7.4343963, 9.536743e-07, 9.10
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 4.598367, -0.10763261, 1.4842257)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.05569955, 0.9984476, 0, -0.9984476, 0.05569955, -0.8865733, 12.334682, 0)
-
-[node name="Player" parent="." instance=ExtResource("2_2ydoq")]
-transform = Transform3D(-0.9426939, 0, -0.33365887, 0, 1, 0, 0.33365887, 0, -0.9426939, 0.14875102, -0.308244, 36.94311)
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.97846216, 0.2064262, 0, -0.2064262, 0.97846216, -1.2018714, 9.295676, 21.613483)
-visible = false
+transform = Transform3D(1, 0, 0, 0, -0.84097296, 0.5410772, 0, -0.5410772, -0.84097296, -0.8865733, 12.334682, 0)
+light_energy = 5.784
+shadow_enabled = true
 
 [node name="SavePoint" parent="." instance=ExtResource("7_uotj3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14728236, -0.6506685, 36.9409)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18181872, -0.74494565, -5.056606)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_uotj3")
+environment = ExtResource("7_wiup3")
+
+[node name="Player" parent="." instance=ExtResource("2_2ydoq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3418274, 1.9369018, 36.012543)
+
+[node name="Emmer" parent="." instance=ExtResource("9_wiup3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4718063, 0)

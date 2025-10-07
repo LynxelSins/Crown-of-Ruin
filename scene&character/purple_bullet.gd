@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 var direction
-@export var speed = 400
+@export var speed = 600
 var is_side = false
 func _ready() -> void:
 	$Timer.start()

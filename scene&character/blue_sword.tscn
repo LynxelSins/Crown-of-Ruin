@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://bp2bnh0p377do"]
+
+[ext_resource type="Script" uid="uid://tmiq7hqhyp8w" path="res://blue_sword.gd" id="1_gjkfj"]
+[ext_resource type="ArrayMesh" uid="uid://dprlihq8e1wto" path="res://assets/SwordModel.obj" id="2_kgw6d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j4mjy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2os0a"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(0, 1, 1, 1)
+refraction_scale = -0.13
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_44usx"]
+height = 2.0231934
+
+[node name="blue_sword" type="CharacterBody3D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_gjkfj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_j4mjy")
+disabled = true
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.03, 0, 0, 0, -1.3113416e-09, 0.03, 0, -0.03, -1.3113416e-09, 0, 0, 0)
+mesh = ExtResource("2_kgw6d")
+surface_material_override/0 = SubResource("StandardMaterial3D_2os0a")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, -0.019284647, 0.99981403, 0, -0.99981403, -0.019284647, 0, -0.009578763, -0.4966117)
+shape = SubResource("CapsuleShape3D_44usx")
+
+[node name="TrackCooldown" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="timeout" from="TrackCooldown" to="." method="_on_track_cooldown_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

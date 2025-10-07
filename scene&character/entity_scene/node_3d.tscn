@@ -1,16 +1,15 @@
 [gd_scene load_steps=7 format=3 uid="uid://80tkps5cqghg"]
 
 [ext_resource type="PackedScene" uid="uid://bxrubx7j3pp2n" path="res://entity_scene/player.tscn" id="1_jli8c"]
+[ext_resource type="Environment" uid="uid://c85dsbuljry3d" path="res://res/myresd.tres" id="2_81rqk"]
 [ext_resource type="PackedScene" uid="uid://dwp3pr58m8oc0" path="res://beatrice.tscn" id="2_pe0jg"]
-[ext_resource type="PackedScene" uid="uid://c8vj4n6k2mm4b" path="res://sword_bullet.tscn" id="3_bthvj"]
+[ext_resource type="PackedScene" uid="uid://c3877e187t2jp" path="res://entity_scene/Emmer.tscn" id="3_bthvj"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_pe0jg"]
 size = Vector2(100, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bthvj"]
 size = Vector3(100, 1, 100)
-
-[sub_resource type="Environment" id="Environment_jli8c"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -26,14 +25,13 @@ shape = SubResource("BoxShape3D_bthvj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1015055, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_jli8c")
+environment = ExtResource("2_81rqk")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.030154739, 0.9995452, 0, -0.9995452, 0.030154739, 0, 28.260616, 0)
 
 [node name="Beatrice" parent="." instance=ExtResource("2_pe0jg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0708203, 3.5713596)
-collision_mask = 3
 
-[node name="Sword_bullet" parent="." instance=ExtResource("3_bthvj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.753359, 13.529284)
+[node name="Emmer" parent="." instance=ExtResource("3_bthvj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1920171, 39.90047)

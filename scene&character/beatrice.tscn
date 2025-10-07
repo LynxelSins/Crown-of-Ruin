@@ -8,8 +8,8 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_grrql"]
 size = Vector3(2.3076782, 2.5136719, 3)
 
-[node name="Beatrice" type="CharacterBody3D"]
-collision_layer = 36
+[node name="Beatrice" type="CharacterBody3D" groups=["Enemy"]]
+collision_layer = 4
 script = ExtResource("1_grrql")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -17,6 +17,8 @@ visible = false
 shape = SubResource("BoxShape3D_mnitl")
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07461548, 1.2431641, 0)
@@ -42,7 +44,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0195374, -1.8586905)
 [node name="Timer" type="Node3D" parent="."]
 
 [node name="bullet_fire_rate" type="Timer" parent="Timer"]
-wait_time = 0.3
 one_shot = true
 
 [node name="bullet_cooldown" type="Timer" parent="Timer"]
@@ -53,5 +54,19 @@ one_shot = true
 wait_time = 5.0
 one_shot = true
 
+[node name="sword_summon_cooldown" type="Timer" parent="Timer"]
+wait_time = 15.0
+one_shot = true
+
+[node name="sword_summon_rate" type="Timer" parent="Timer"]
+wait_time = 0.5
+one_shot = true
+
+[node name="WalkingTimer" type="Timer" parent="Timer"]
+wait_time = 5.0
+autostart = true
+
 [connection signal="timeout" from="Timer/bullet_cooldown" to="." method="_on_bullet_cooldown_timeout"]
 [connection signal="timeout" from="Timer/bullet_firetime" to="." method="_on_bullet_firetime_timeout"]
+[connection signal="timeout" from="Timer/sword_summon_cooldown" to="." method="_on_sword_summon_cooldown_timeout"]
+[connection signal="timeout" from="Timer/WalkingTimer" to="." method="_on_walking_timer_timeout"]

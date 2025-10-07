@@ -1,0 +1,16 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://c85dsbuljry3d"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bthvj"]
+sky_energy_multiplier = 1.81
+
+[sub_resource type="Sky" id="Sky_81rqk"]
+sky_material = SubResource("ProceduralSkyMaterial_bthvj")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_81rqk")
+ambient_light_source = 2
+ambient_light_color = Color(0.72246313, 0.8989184, 0.99999994, 1)
+reflected_light_source = 2
+tonemap_exposure = 1.69
+glow_enabled = true

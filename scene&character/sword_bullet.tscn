@@ -1,12 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8vj4n6k2mm4b"]
+[gd_scene load_steps=7 format=3 uid="uid://c8vj4n6k2mm4b"]
 
 [ext_resource type="Script" uid="uid://cmq8q74d8wh07" path="res://sword_bullet.gd" id="1_611tg"]
+[ext_resource type="PackedScene" uid="uid://cv3fqqcelluh5" path="res://assets/sword_model_no_texture.glb" id="2_g80yu"]
+[ext_resource type="ArrayMesh" uid="uid://dprlihq8e1wto" path="res://assets/SwordModel.obj" id="3_12fpq"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ge6ud"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_g80yu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4s74e"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(1, 0.089999974, 0.13550013, 1)
+grow = true
+grow_amount = 0.736
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_12fpq"]
+size = Vector3(0.41296387, 0.28826904, 1.1375732)
 
 [node name="Sword_bullet" type="CharacterBody3D"]
 collision_layer = 0
@@ -19,13 +31,21 @@ disabled = true
 
 [node name="model" type="Node3D" parent="."]
 
+[node name="Sketchfab_Scene" parent="model" instance=ExtResource("2_g80yu")]
+transform = Transform3D(1.2, 0, 0, 0, -8.742278e-08, -1.2, 0, 2, -5.2453668e-08, 0, 0, -0.24972916)
+visible = false
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="model"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-mesh = SubResource("CylinderMesh_g80yu")
+transform = Transform3D(0.02, 0, 0, 0, -8.7422775e-10, 0.02, 0, -0.02, -8.7422775e-10, 0, 0, 0)
+mesh = ExtResource("3_12fpq")
+surface_material_override/0 = SubResource("StandardMaterial3D_4s74e")
 
 [node name="Hitbox" type="Area3D" parent="."]
 collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02142334, -0.0077819824, -0.3143655)
 shape = SubResource("BoxShape3D_12fpq")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

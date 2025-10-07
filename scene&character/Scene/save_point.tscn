@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0u6p13ir3w7l"]
+[gd_scene load_steps=7 format=3 uid="uid://c0u6p13ir3w7l"]
 
 [ext_resource type="Script" uid="uid://bybbnc40tk5hf" path="res://scripts/save_point.gd" id="1_6rowh"]
 [ext_resource type="Texture2D" uid="uid://blguugtj0va57" path="res://asset project game/save.png" id="1_63nrr"]
@@ -17,6 +17,9 @@ top_radius = 0.7
 bottom_radius = 1.0
 height = 0.5
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_6rowh"]
+size = Vector3(2.1605225, 2.755005, 3.3168335)
+
 [node name="SavePoint" type="Node3D"]
 script = ExtResource("1_6rowh")
 
@@ -27,3 +30,13 @@ shape = SubResource("CylinderShape3D_8ur3c")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("CylinderMesh_63nrr")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.097351074, 0.87750244, -0.78744507)
+shape = SubResource("BoxShape3D_6rowh")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

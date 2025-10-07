@@ -10,6 +10,7 @@ size = Vector3(2.4815674, 2.2782593, 2.2395325)
 size = Vector3(2.5130615, 2.4697266, 2.6142578)
 
 [node name="Emmer" type="CharacterBody3D" groups=["Enemy"]]
+collision_layer = 4
 script = ExtResource("1_6bs15")
 
 [node name="EmmerrichTextureAndAnimation2" parent="." instance=ExtResource("2_6bs15")]

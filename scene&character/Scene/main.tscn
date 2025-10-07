@@ -1,20 +1,51 @@
-[gd_scene load_steps=3 format=3 uid="uid://ciwttw6rerpov"]
+[gd_scene load_steps=4 format=3 uid="uid://ciwttw6rerpov"]
 
 [ext_resource type="FontFile" uid="uid://yuu32w4lymd1" path="res://assets/Phantom Shadow Serif Demo.otf" id="1_f6udf"]
+[ext_resource type="Script" uid="uid://bjpwojamllnwr" path="res://Scene/main.gd" id="1_r34rm"]
 [ext_resource type="Texture2D" uid="uid://caktcnt0l0dg7" path="res://assets/61b58071-a9b8-4f6e-ac8b-c467dfd244b8.jpg" id="1_sblpm"]
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_r34rm")
 
 [node name="BgForGame" type="Sprite2D" parent="."]
-position = Vector2(575, 326)
-scale = Vector2(0.751302, 0.634766)
+position = Vector2(642.46436, 363.9999)
+scale = Vector2(0.8391463, 0.70898455)
 texture = ExtResource("1_sblpm")
 
+[node name="Label2" type="Label" parent="BgForGame"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1270.8071
+offset_top = -913.98334
+offset_right = -482.80713
+offset_bottom = -520.98334
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_f6udf")
+theme_override_font_sizes/font_size = 40
+text = "Control:
+W,A,S,D - Movement
+L-Shift - Dash
+J - Attack
+Spacebar - Jump
+arrow keys - Camera Control"
+
 [node name="Label" type="Label" parent="BgForGame"]
-offset_left = -389.99
-offset_top = -291.446
-offset_right = 398.01
-offset_bottom = -73.4461
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1164.1936
+offset_top = -881.5425
+offset_right = -376.19354
+offset_bottom = -663.5425
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0.333311, 3.76021e-07, 7.21961e-08, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("1_f6udf")
@@ -22,11 +53,20 @@ theme_override_font_sizes/font_size = 140
 text = "Crown of Ruin"
 
 [node name="Button" type="Button" parent="BgForGame"]
-offset_left = -162.385
-offset_top = 72.4677
-offset_right = 155.615
-offset_bottom = 221.468
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -882.0
+offset_top = -586.5
+offset_right = -654.0
+offset_bottom = -437.5
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_f6udf")
 theme_override_font_sizes/font_size = 90
 text = "Start"
+
+[connection signal="pressed" from="BgForGame/Button" to="." method="_on_button_pressed"]

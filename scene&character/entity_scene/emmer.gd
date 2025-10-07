@@ -10,9 +10,9 @@ var is_player = false
 var is_attack = false
 var is_player_in_attack_box = false
 var player : Node3D
-@export var health = 100
-@export var max_health = 100
-@export var attack = 10
+@export var health = 800
+@export var max_health = 800
+@export var attack = 30
 var damage = 0
 
 
@@ -136,6 +136,7 @@ func take_damage(damage):
 			animation_tree["parameters/conditions/is_death"] = true
 			
 func death_handling():
+	GameManager.is_second_state_done = true
 	queue_free()
 
 
