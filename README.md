@@ -149,6 +149,14 @@ Beatrice
 
 <img src="https://github.com/LynxelSins/Crown-of-Ruin/blob/90c0abbc35e354dba728808f22bba29e0a697ffa/screen/guide.png" alt="GitHub logo" width="300">
 
+ด่านที่ 1 หมู่บ้าน
+
+<img src="https://github.com/LynxelSins/Crown-of-Ruin/blob/f2b23df4af00c4149e78fa1e2f84cdff9d2a6060/screen/stage1.png" alt="GitHub logo" width="300">
+
+ด่านที่ 2 ปราสาท
+
+<img src="https://github.com/LynxelSins/Crown-of-Ruin/blob/f2b23df4af00c4149e78fa1e2f84cdff9d2a6060/screen/stage2.png" alt="GitHub logo" width="300">
+
 ### Win
 
 <img src="https://github.com/LynxelSins/Crown-of-Ruin/blob/90c0abbc35e354dba728808f22bba29e0a697ffa/screen/end.png" alt="GitHub logo" width="300">
