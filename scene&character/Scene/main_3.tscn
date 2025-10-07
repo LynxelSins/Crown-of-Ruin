@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://baq26s0rg0tku"]
 
-[ext_resource type="Texture2D" uid="uid://bofogpjwn11e3" path="res://black-370118_1280.png" id="1_818tw"]
-[ext_resource type="FontFile" uid="uid://dofnbc7k2s2kd" path="res://phantom-shadow-serif-demo/Phantom Shadow Serif Demo.otf" id="2_vok63"]
+[ext_resource type="Texture2D" uid="uid://bb56fl2nd86cc" path="res://assets/5c6a9586-4f14-4735-aed8-f63aaa05a1af.jpg" id="1_gkmte"]
+[ext_resource type="FontFile" uid="uid://yuu32w4lymd1" path="res://assets/Phantom Shadow Serif Demo.otf" id="2_fr7cu"]
 
 [node name="main3" type="Node2D"]
 
 [node name="Black-3701181280" type="Sprite2D" parent="."]
 position = Vector2(572.5, 320.5)
 scale = Vector2(0.907031, 0.796837)
-texture = ExtResource("1_818tw")
+texture = ExtResource("1_gkmte")
 
 [node name="Label" type="Label" parent="Black-3701181280"]
 offset_left = -332.403
@@ -17,6 +17,6 @@ offset_right = 394.597
 offset_bottom = 141.072
 theme_override_colors/font_outline_color = Color(0.243137, 0, 0, 1)
 theme_override_constants/outline_size = 30
-theme_override_fonts/font = ExtResource("2_vok63")
+theme_override_fonts/font = ExtResource("2_fr7cu")
 theme_override_font_sizes/font_size = 180
 text = "THE END "

@@ -1,12 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://ciwttw6rerpov"]
+[gd_scene load_steps=3 format=3 uid="uid://ciwttw6rerpov"]
 
 [ext_resource type="FontFile" uid="uid://yuu32w4lymd1" path="res://assets/Phantom Shadow Serif Demo.otf" id="1_f6udf"]
+[ext_resource type="Texture2D" uid="uid://caktcnt0l0dg7" path="res://assets/61b58071-a9b8-4f6e-ac8b-c467dfd244b8.jpg" id="1_sblpm"]
 
 [node name="main" type="Node2D"]
 
 [node name="BgForGame" type="Sprite2D" parent="."]
 position = Vector2(575, 326)
 scale = Vector2(0.751302, 0.634766)
+texture = ExtResource("1_sblpm")
 
 [node name="Label" type="Label" parent="BgForGame"]
 offset_left = -389.99
