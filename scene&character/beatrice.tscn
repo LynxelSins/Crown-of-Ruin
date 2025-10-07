@@ -27,10 +27,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
 [node name="Muzzlepoint" type="Node3D" parent="."]
 
-[node name="Front" type="Marker3D" parent="Muzzlepoint"]
+[node name="front" type="Marker3D" parent="Muzzlepoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0195374, 1.8702528)
+
+[node name="left" type="Marker3D" parent="Muzzlepoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5467272, 1.0195374, -0.021711946)
+
+[node name="right" type="Marker3D" parent="Muzzlepoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6828139, 1.0195374, 0.073554516)
+
+[node name="back" type="Marker3D" parent="Muzzlepoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0195374, -1.8586905)
 
 [node name="Timer" type="Node3D" parent="."]
 
-[node name="BulletTimer1" type="Timer" parent="Timer"]
+[node name="bullet_fire_rate" type="Timer" parent="Timer"]
+wait_time = 0.3
 one_shot = true
+
+[node name="bullet_cooldown" type="Timer" parent="Timer"]
+wait_time = 5.0
+one_shot = true
+
+[node name="bullet_firetime" type="Timer" parent="Timer"]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Timer/bullet_cooldown" to="." method="_on_bullet_cooldown_timeout"]
+[connection signal="timeout" from="Timer/bullet_firetime" to="." method="_on_bullet_firetime_timeout"]

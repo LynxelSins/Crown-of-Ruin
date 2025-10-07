@@ -8,7 +8,7 @@ extends CharacterBody3D
 @export var acceleration := 20.0
 ## When the player is on the ground and presses the jump button, the vertical
 ## velocity is set to this value.
-@export var jump_impulse := 12.0
+@export var jump_impulse := 15.0
 ## Player model rotation speed in arbitrary units. Controls how fast the
 ## character skin orients to the movement or camera direction.
 @export var rotation_speed := 12.0
