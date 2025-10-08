@@ -167,6 +167,11 @@ Beatrice
 
 <img src="https://github.com/LynxelSins/Crown-of-Ruin/blob/90c0abbc35e354dba728808f22bba29e0a697ffa/screen/gameover.png" alt="GitHub logo" width="300">
 
+### VDO
+
+https://youtu.be/dXBHXD4gYmg
+
+
 ## อ้างอิง
 
 #### asset 
