@@ -6,6 +6,8 @@
 
 ### Link to play demo :
 
+https://lynxelsins.itch.io/crown-of-ruin?fbclid=IwY2xjawNSoK9leHRuA2FlbQIxMABicmlkETFQYTVVSXp4OXJpWUFpN1U2AR7q4vFBsKzTLWstiDO4XuhttCYGWD804gYUm2OpjEGvOGXNTJKplji6-zzVZQ_aem_yuJnX0kmThRKSmp2vbbamg
+
 จัดทำโดย : 
 
 673380037-1 นางสาวณัฐนันทน์ บุษดี สาขาวิทยาการคอมพิวเตอร์
